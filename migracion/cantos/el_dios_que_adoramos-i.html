@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    </head>  
+    <body class="contenido">
+        <div class="tempo">110</div>
+        
+        <div class="canto_body"> 
+<!---------------Este es el limite----->  
+            <pre>
+INTRO:
+||: F#   | C#   | D#m | B | F# | C# :||
+div id="boo">
+VERSO1:
+   F#                           C#
+El Dios que hizo los cielos y la tierra
+                     D#m
+con el poder de Su palabra 
+                B
+reina con autoridad.
+   F#                             C#
+El Dios que aun los vientos le obedecen
+                   D#m
+una palabra es suficiente
+                      B
+para los muertos levantar
+     
+%
+PRECORO:
+         B           C#   
+Nadie es como El, oh gran Yo Soy
+
+CORO:
+           F#
+Tú eres el Dios que adoramos
+        C#
+todopoderoso y Soberano
+            D#m B          F#          C#
+grande en misericordia y poder para salvar
+           F#
+Tú eres el Dios que adoramos
+                 C#
+quien derrotó la muerte y el pecado
+   D#m        B     D#m  C#       tocoda
+Glorioso Redentor y Rey, te adoramos
+
+INTRO:
+| F#   | C#   | D#m | B | F# | C# |
+
+VERSO2:
+   F#                          C#
+El Dios que descendió desde Su trono
+                      D#m
+para llevar sobre sus hombros
+                        B
+nuestra culpa y transgresión.
+  F#                  C#
+Jesús, exaltado sobre todo
+                  D#m
+nombre sobre todo nombre 
+                    B  d.s. al coda
+solo en El hay Salvación
+
+coda
+PUENTE:
+||: B ─ C# ─ B/D# ─ C# :||
+div id="boo2">
+       B              C#
+//A Él sea la gloria y el poder
+     B/D#       C#
+todo es de Él y para El//
+
+CORO:
+F#
+Tú eres el Dios que adoramos,
+        C#
+todopoderoso y Soberano,
+            D#m B          F#          C#
+grande en misericordia y poder para salvar.
+           F#
+Tú eres el Dios que adoramos,
+                 C#
+quien derrotó la muerte y el pecado.
+   D#m        B     D#m  C#    
+Glorioso Redentor y Rey, te adoramos
+
+FINAL:
+| F#   | C#   | D#m | B | F# | C# |
+            </pre>
+<!---------------Este es el limite-----> 
+        </div>
+
+        <!--FIREBASE SCRIPTS-->
+        <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-storage.js"></script>
+        <script src="../../js/firebase_init.js"></script>
+
+        <script src="../../js/template-cancion.js"></script>
+        <script  type="text/javascript" defer>
+            var x = document.getElementById("modoSelect");
+            var option = document.createElement("option");
+            option.text = "G.Electrica";
+            x.add(option);
+         </script>
+
+        <!-- mandatory script includes for jtab -->
+        <script src="https://jtab.tardate.com/javascripts/jquery.js" type="text/javascript"></script>
+        <script src="https://jtab.tardate.com/javascripts/raphael.js" type="text/javascript"></script>
+        <script src="https://jtab.tardate.com/javascripts/jtab.js" type="text/javascript"></script>
+
+        <!-- mandatory scripts for transposing-->
+        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+        <script type="text/javascript" src="../../js/jquery.transposer.js"></script>
+        <script type="text/javascript" src="../../js/jquery.letra.js"></script>
+        <script type="text/javascript" src="../../js/jquery.gelectrica.js"></script>
+
+        <!-- mandatory scripts for audio -->
+        <script type="text/javascript" src="../../js/audio.js"></script>
+        <script src="../../js/audioplayer.js"></script>
+
+        <!-- mandatory scripts for transition -->
+        <script defer src="../../js/swup.min.js"></script>        
+
+        <script src="../../js/canto.js" defer></script>
+        <!-- mandatory sripts for VEXTAB-->
+    <link href="../../css/vextab.css" media="screen" rel="Stylesheet" type="text/css" />
+    <script defer src="../../js/vextab-div.prod.js"></script>
+    <script defer src="../../js/vexflow-min.js"></script>
+    <script type="text/javascript">
+         const data = `
+            tabstave notation=true key=F# time=4/4
+            notes :8 =|: 7-9/2 9/2 :q 9/2 :8 9/2 :q 7/2 | :qd 9/1 :h 6/1 | :8 7-9/2 9/2 :q 9/2 :8 9/2 :q 7/2 | :w 6/2  
+
+            tabstave notation=true key=F# time=4/4
+            notes  | :8 7-9/2 9/2 :q 9/2 :8 9/2 :q 7/2 | :qd 9/1 :h 6/1 :8 14/2 | 14/1 14/2 14/1 14/2 14/1 14/2 14/1 14/2 | 16/1 14/2 16/1 14/2 16/1 14/2 16/1 14/2
+         `
+         const data2 = `
+            tabstave notation=true key=F# time=4/4
+            notes :8 =|: 7/2 :q s9/2 :hd 9/1 :q 11/1 | :w 9/1 | :8 7/2 :q s9/2 :hd 9/1 :q 13/1 | :w 9/1
+         `
+         /*const data3 = `
+            tabstave notation=true key=C time=4/4
+            notes :q =|: 3/5 :16 0h2/4 :8 0-0h0/3 2-3/4 | h3-3-2-0/4 3/5 0-2-3/4 
+            text :w, |#segno, ,|, :hd, , #tr
+         `*/
+      </script>
+
+      <script defer type="module" src="../../js/gelectricaVexTab.js"></script>
+
+    </body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    </head>  
+    <body class="contenido">
+        <div class="tempo">55</div>
+        
+        <div class="canto_body"> 
+<!---------------Este es el limite----->  
+            <pre>
+INTRO: (ELECTRIC PIANO)
+| A ─ Dmaj7 ─ | E ─ ─ D/E | A ─ D ─ | E |
+| F#m7 ─ F#m7/E ─ | Dadd2 ─ ─ A/C# |
+| Bm7 ─ Bm7/A ─ | Esus4 |
+div id="paper" style="overflow: hidden;">
+%
+VERSO 1:
+  A            D           | E ─ ─ D/E |
+//  En mi corazón hay una canción
+A         D          E
+  que demuestra mi pasión
+F#m7       F#m7/E   | Dadd2 ─ ─ A/C# |
+  para mi Rey y mi Señor,
+Bm7       Bm7/A       Esus4 - E
+  para aquel que me amó        //
+
+CORO:
+  A        C#m7  Dsus2       E
+// Hermoso eres,       mi Señor
+A         C#m7    Dsus2        E
+  hermoso eres Tú,     amado mío
+Bm7                        E
+  Tú eres la fuente de mi vida
+___________________________________________________
+1,3. Bm7       A/C#  D          E
+        y el anhelo  de mi corazón//
+___________________________________________________
+2,4. Bm7       A/C#  D     E    
+        y el anhelo  de mi cora...
+
+PUENTE:
+||: A - D | E :||  d.s.
+...zón
+div id="paper2" style="overflow: hidden;">
+
+FINAL
+A
+            </pre>
+<!---------------Este es el limite-----> 
+        </div>
+
+        <!--FIREBASE SCRIPTS-->
+        <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-storage.js"></script>
+        <script src="../../js/firebase_init.js"></script>
+
+        <script src="../../js/template-cancion.js"></script>
+        <script  type="text/javascript" defer>
+            var x = document.getElementById("modoSelect");
+            var option = document.createElement("option");
+            option.text = "Piano";
+            x.add(option);
+        </script>
+
+        <!-- mandatory script includes for jtab -->
+        <script src="https://jtab.tardate.com/javascripts/jquery.js" type="text/javascript"></script>
+        <script src="https://jtab.tardate.com/javascripts/raphael.js" type="text/javascript"></script>
+        <script src="https://jtab.tardate.com/javascripts/jtab.js" type="text/javascript"></script>
+
+        <!-- mandatory scripts for transposing-->
+        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+        <script type="text/javascript" src="../../js/jquery.transposer.js"></script>
+        <script type="text/javascript" src="../../js/jquery.letra.js"></script>
+        <script type="text/javascript" src="../../js/jquery.piano.js"></script>
+
+        <!-- mandatory scripts for audio -->
+        <script type="text/javascript" src="../../js/audio.js"></script>
+        <script src="../../js/audioplayer.js"></script>
+
+        <!-- mandatory scripts for transition -->
+        <script defer src="../../js/swup.min.js"></script>        
+
+        <script src="../../js/canto.js" defer></script>
+        <!-- mandatory script for PIANO-->
+    <script src="../../js/abcjs-basic.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var program = 5;  //Grand Piano Sound
+        var abc = 
+            "M: 4/4\n" +
+            "L: 1/16\n" +
+            'Q: 55\n' +
+            "%%staves  S|{R|L}\n" +
+            "K: A\n" +
+
+            'V:S clef=treble\n'+
+            "%%MIDI program 67\n"+
+            '"A" z4 cccc "Dmaj7" -c2AB -B2cB | "E" -B14 "D/E" z2 | "A" z4 cccc "D" -c2AB -B2cB | "E" -B16 | "F#m7" z4 AAAA "F#m7/E" -A2Bc -c2AF | "Dadd2" -F12 "A/C#" -FEE2 | "Bm7" (D4 d2)dd "Bm7/A" -d2(c2 A2)B2 | "Esus4" B16 ||\n'+
+
+            'V:R clef=treble\n'+
+            'z4 CE2[A,CF] -[A,DF]3[A,DF] -[A,DF]2F[G,B,E] | -[G,B,E]E,G,B, -B,B,E[FB] -[FB]B,EB -B3E | -EA,CE -EE,A,E -EF,A,F -FA,DE | -E3B -B4 -B2EF -F2G[CA] | -[CA]2A,B, C3A, -A,2[CA][Ec] -[Ec]2AF | -F4 z D2E -E[A,D]2E -EA,2D | -DA,DF, A,3A -A,3F, D4 | [A,B,E]4 [A,B,E]4 [A,B,E]4 E,2B,2||\n' +
+
+            "V:L clef=bass\n" +
+            "[A,,,A,,]8 D,,8 | E,,16 | [A,,,A,,]8 D,,8 | E,,16 & z E,G,2 -G,2F,G, -G,8 | F,,8 [E,,E,]8 | [D,,D,]8 z [D,,D,]3 [C,,C,]4 | [B,,,B,,]8 [A,,,A,,]8 | E,,16||\n";
+
+        var abc2 = 
+            "M: 4/4\n" +
+            "L: 1/16\n" +
+            'Q: 55\n' +
+            "%%staves  S|{R|L}\n" +
+            "K: A\n" +
+
+            'V:S clef=treble\n'+
+            "%%MIDI program 67\n"+
+            '|: "A" z4 cccc "D" -c2AB -B2cB | "E" -B16 :|\n'+
+
+            'V:R clef=treble\n'+
+            '|: z E,CE [EA]3[DEFAc] -[DEFAc]3[FB] -[FB]3[EFB] | -[EFB]8 EF,G,E -EA,B,E :|\n' +
+
+            "V:L clef=bass\n" +
+            "|: [A,,,A,,]8 D,,8 | E,,16 :|\n";
+    </script>
+    <script defer type="text/javascript" src="../../js/pianoABCjs.js"></script>
+
+    </body>
+</html>

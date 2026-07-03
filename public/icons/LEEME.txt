@@ -1,0 +1,14 @@
+Coloca aquí tus íconos PWA en estos tamaños exactos:
+icon-72.png
+icon-96.png
+icon-128.png
+icon-144.png
+icon-152.png
+icon-192.png
+icon-384.png
+icon-512.png
+
+Forma más fácil de generarlos:
+1. Ve a https://www.pwabuilder.com/imageGenerator
+2. Sube tu logo (el de Dunamis Adoración, por ejemplo)
+3. Descarga el paquete y copia los PNG aquí con estos nombres exactos

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    </head>  
+    <body class="contenido">
+        <div class="tempo">71</div>
+        
+        <div class="canto_body"> 
+<!---------------Este es el limite----->  
+            <pre>
+INTRO:
+| D | A | Em | Bm |
+| D | A | Em7 | Bm | Asus4 | A |
+div id="paper" style="overflow: hidden;">
+VERSO1: (PIANO)
+      D        A    Em           
+Al estar ante tí adorando frente 
+               Bm
+al mar de cristal
+  A/C#  D       A      Em9         
+Entre  la multitud en asombro allí 
+                 Bm 
+me habré de postrar
+  A/C# D        A     Em9     
+Y mi  canto uniré a millones
+               Bm 
+proclamandote Rey
+  A/C#  D     A         Em          
+Y mi   voz oirás entre las multitudes
+    Bm | Asus4 | A
+cantar
+
+CORO:
+               A/G G       D
+Digno es el corde--ro de Dios
+               G    F#7/A#  Bm
+el que fue inmolado en la cruz
+D/A         G      A/C#   D
+digno de la honra y el poder
+         Em7  G/D A
+la sabiduría suya es
+        D/F#        A/G   G         D/F#
+Y al que está en el trono sea el honor
+              G        F#7/A#  Bm
+Santo, Santo, Santo es el Se--ñor
+D/A           G       A/C#  D
+reina por los siglos con poder
+             Em7   G/D    C | Asus4 | A  
+todo lo que existe es por El
+
+VERSO2:
+      D        A    Em           
+Al estar ante tí adorando frente 
+               Bm
+al mar de cristal
+  A/C# D       A      Em9         
+Entre la multitud en asombro allí 
+                 Bm 
+me habré de postrar
+  A/C# D        A     Em9     
+Y mi  canto uniré a millones
+               Bm 
+proclamandote Rey
+      D     A         Em          
+Y mi voz oirás entre las multitudes
+    Bm | A | Asus4
+cantar
+
+CORO:
+               A/G G       D/F#
+Digno es el corde--ro de Dios
+               G    F#7/A#  Bm
+el que fue inmolado en la cruz
+D/A         G             D/F#
+digno de la honra y el poder
+         Em       Asus4
+la sabiduría suya es
+                    A/G   G         D/F#
+Y al que está en el trono sea el honor
+              G        F#7/A#  Bm
+Santo, Santo, Santo es el Se--ñor
+D/A           G       A/C#  D
+reina por los siglos con poder
+             Em7   Em/D   C | Asus4 |
+todo lo que existe es por El
+
+PUENTE:
+| A/D  G | D/F# | G ─ F#7/A# | Bm
+D/A         G      A/C#   D
+Digno de la honra y el poder
+         Em7  G/D Asus4
+la sabiduría suya es
+D/F#                A/G   G         D/F#
+Y al que está en el trono sea el honor
+              G        F#7/A#  Bm
+Santo, Santo, Santo es el Se--ñor
+D/A           G       A/C#  D
+reina por los siglos con poder
+             Em    G/D    C  
+todo lo que existe es por El
+
+FINAL:
+             Em    Asus4  D | A/C# ─ A | 
+todo lo que existe es por El
+| G ─ G/B | Asus4 | D 
+            </pre>
+<!---------------Este es el limite-----> 
+        </div>
+
+        <!--FIREBASE SCRIPTS-->
+        <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-storage.js"></script>
+        <script src="../../js/firebase_init.js"></script>
+
+        <script src="../../js/template-cancion.js"></script>
+        <script  type="text/javascript" defer>
+          var x = document.getElementById("modoSelect");
+          var option = document.createElement("option");
+          option.text = "Piano";
+          x.add(option);
+        </script>
+
+        <!-- mandatory script includes for jtab -->
+        <script src="https://jtab.tardate.com/javascripts/jquery.js" type="text/javascript"></script>
+        <script src="https://jtab.tardate.com/javascripts/raphael.js" type="text/javascript"></script>
+        <script src="https://jtab.tardate.com/javascripts/jtab.js" type="text/javascript"></script>
+
+        <!-- mandatory scripts for transposing-->
+        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+        <script type="text/javascript" src="../../js/jquery.transposer.js"></script>
+        <script type="text/javascript" src="../../js/jquery.letra.js"></script>
+        <script type="text/javascript" src="../../js/jquery.piano.js"></script>
+
+        <!-- mandatory scripts for audio -->
+        <script type="text/javascript" src="../../js/audio.js"></script>
+        <script src="../../js/audioplayer.js"></script>
+
+        <!-- mandatory scripts for transition -->
+        <script defer src="../../js/swup.min.js"></script>        
+
+        <script src="../../js/canto.js" defer></script>
+        <!-- mandatory script for PIANO-->
+        <script src="../../js/abcjs-basic.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            var program = 0;  //Grand Piano Sound
+            var abc = 
+                "M: 4/4\n" +
+                "L: 1/16\n" +
+                'Q: 71\n' +
+                "%%staves  {R|L}\n" +
+                "K: D\n" +
+
+                'V:R clef=treble\n'+
+                ' f2 g2a2 | "D" -a8 -a2g2f2e2 | "A" -e12 z Aef | "Em" [Bg]2Be B4 [Bg]2f2e2[Fd]2- | "Bm" -[Fd]4 [Ec]2[DB]2 -[DB]2F2 [A,EG]2A2 | "D" EA,5 A,2-A,2 D4 A,2 & FEDE -E2D2 -D2G2 F2E2  | "A" -A,2A, z3 z4 z6 & -E6 [CA,]2-[CA,]4 E2F2 | "Em7" [B,DG]6 EF G2F2 E2[DB,]2 | "Bm" [DB,]2B,2 [DB,]4 [DB,]4 z B,DF | "Asus4" [A,E]4 [A,D]2A,2 [A,D]2A,2 [A,D]2DE | "A" [CE]8 [CE]6 zA ||\n'+
+
+                "V:L clef=bass\n" +
+                "z2 z4 | D,A,DE- EFA2-A8 | A,,E,A,B,- B,EC2-C8 | E, B,3 -B,3E -E8  | B,,F,F,B, -B,8 C,,C,2A,, | D,,16 | A,,16 | E,,B,,E,F, E,12 | B,,16 | A,,16 | A,,16 ||\n";
+        </script>
+        <script defer type="text/javascript" src="../../js/pianoABCjs.js"></script>
+
+    </body>
+</html>

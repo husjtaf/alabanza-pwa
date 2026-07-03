@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+      <head>
+      </head>  
+      <body class="contenido">
+            <div class="tempo">136</div>
+            
+            <div class="canto_body"> 
+<!---------------Este es el limite----->  
+                  <pre>
+INTRO:
+C
+
+VERSO:
+        C            G
+Cuan hermoso eres Jesus
+          Am              F
+son tus palabras, es tu amor
+           C           G
+Cuan glorioso eres Jesus
+        Am            F
+Es tu poder, fue tu cruz,
+              C          G
+la que me salvo me rescato
+            Am               F
+un momento ahí nos dio libertad.
+
+CORO:
+            C
+//Te doy gloria gloria,
+          G
+te doy gloria gloria,
+          Am                 F     d.c.
+te doy gloria gloria a Ti Jesus//
+
+PUENTE:
+       C               G
+//Con una corona de espinos
+     Am               F
+te hiciste Rey por siempre.
+    C               G
+Con una corona de espinos
+     Am               F
+te hiciste Rey por siempre//
+
+CORO:
+            C
+//Te doy gloria gloria,
+          G
+te doy gloria gloria,
+          Am                 F
+te doy gloria gloria a Ti Jesus//
+                  </pre>
+<!---------------Este es el limite-----> 
+            </div>
+
+            <!--FIREBASE SCRIPTS-->
+            <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-firestore.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-storage.js"></script>
+            <script src="../../js/firebase_init.js"></script>
+
+            <script src="../../js/template-cancion.js"></script>
+            <script  type="text/javascript" defer>
+                  var x = document.getElementById("modoSelect");
+                  var option = document.createElement("option");
+                  option.text = "G.Electrica";
+                  x.add(option);
+            </script>
+
+            <!-- mandatory script includes for jtab -->
+            <script src="https://jtab.tardate.com/javascripts/jquery.js" type="text/javascript"></script>
+            <script src="https://jtab.tardate.com/javascripts/raphael.js" type="text/javascript"></script>
+            <script src="https://jtab.tardate.com/javascripts/jtab.js" type="text/javascript"></script>
+
+            <!-- mandatory scripts for transposing-->
+            <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+            <script type="text/javascript" src="../../js/jquery.transposer.js"></script>
+            <script type="text/javascript" src="../../js/jquery.letra.js"></script>
+            <script type="text/javascript" src="../../js/jquery.gelectrica.js"></script>
+
+            <!-- mandatory scripts for audio -->
+            <script type="text/javascript" src="../../js/audio.js"></script>
+            <script src="../../js/audioplayer.js"></script>
+
+            <!-- mandatory scripts for transition -->
+            <script defer src="../../js/swup.min.js"></script>        
+
+            <script src="../../js/canto.js" defer></script>
+            <!-- mandatory sripts for VEXTAB-->
+            <link href="../../css/vextab.css" media="screen" rel="Stylesheet" type="text/css" />
+            <script defer src="../../js/vextab-div.prod.js"></script>
+            <script defer src="../../js/vexflow-min.js"></script>
+            <script type="text/javascript">
+                  const data = `
+                        tabstave notation=true clef=treble 
+                        key=G 
+                        time=4/4
+                        notes  =|: :q 7/1 :8 7/1 10/2 7s8-7/1 10/2 | :q 7/1 :8 7/1 10/2 7s8-7/1 10/2 | :qd 7/1 :8 8/2 :q 9/3 11/3 |
+                        notes  :q 8/2 11-9-7/3 ^3^
+                        text :w, G , |
+                        text :w, G , |
+                        text :w, C , |
+                        text :w, D
+                  `
+            </script>
+
+            <script defer type="module" src="../../js/gelectricaVexTab.js"></script>
+
+      </body>
+</html>

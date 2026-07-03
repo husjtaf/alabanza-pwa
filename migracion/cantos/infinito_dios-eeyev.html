@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    </head>  
+    <body class="contenido">
+        <div class="tempo">102</div>
+        
+        <div class="canto_body"> 
+<!---------------Este es el limite----->  
+            <pre>
+INTRO:
+| C | Csus4 | C | Csus4 |
+div id="boo">
+VERSO:
+ C                   Csus4
+//Nuevas fuerzas tendrán
+                     C
+Los que esperan en Dios
+                 Csus4           
+Esperaremos en Dios, esperaremos//
+
+PRECORO:
+C/E  F    C/E  F   G    Am  G
+Dios rei  na   rá por siempre
+
+C/E  F  C/E F  G  Am   G
+Nuestro fuerte libertador
+
+CORO:
+C                    F
+  Eres el Infinito Dios,
+              Am
+el infinito Dios,
+                F  G/F  Fmaj7  d.c.
+Tu no desmayas, nunca   fallas
+
+C                      F
+  Defensor de los débiles
+                Am
+nuestro Consolador
+                  F─G/F  Am/F    
+nos levantaste en a-las  de águila
+
+PUENTE:
+| C   | F   | Am   | F ─ G/F | Fmaj7 |
+div id="boo2">
+PRECORO: (suave)
+ C/E  F    C/E  F   G    Am  G
+//Dios rei  na   rá por siempre
+
+C/E  F  C/E  F  G  Am   G
+Nuestro fuer-te libertador//
+
+
+CORO:(primera mitad de la 1. suave)
+ C                    F
+//  Eres el Infinito Dios,
+              Am
+el infinito Dios,
+                F  G/F  Fmaj7  
+Tu no desmayas, nunca   fallas
+C                      F
+  Defensor de los débiles
+                Am
+nuestro Consolador
+                  F─G/F  Am/F    
+nos levantaste en a-las  de águila//
+
+FINAL:
+| C   | F   | Am   | F ─ G/F | Fmaj7 |
+div id="boo3">
+            </pre>
+<!---------------Este es el limite-----> 
+        </div>
+
+        <!--FIREBASE SCRIPTS-->
+        <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-storage.js"></script>
+        <script src="../../js/firebase_init.js"></script>
+
+        <script src="../../js/template-cancion.js"></script>
+        <script  type="text/javascript" defer>
+            var x = document.getElementById("modoSelect");
+            var option = document.createElement("option");
+            option.text = "G.Electrica";
+            x.add(option);
+        </script>
+
+        <!-- mandatory script includes for jtab -->
+        <script src="https://jtab.tardate.com/javascripts/jquery.js" type="text/javascript"></script>
+        <script src="https://jtab.tardate.com/javascripts/raphael.js" type="text/javascript"></script>
+        <script src="https://jtab.tardate.com/javascripts/jtab.js" type="text/javascript"></script>
+
+        <!-- mandatory scripts for transposing-->
+        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+        <script type="text/javascript" src="../../js/jquery.transposer.js"></script>
+        <script type="text/javascript" src="../../js/jquery.letra.js"></script>
+        <script type="text/javascript" src="../../js/jquery.gelectrica.js"></script>
+
+        <!-- mandatory scripts for audio -->
+        <script type="text/javascript" src="../../js/audio.js"></script>
+        <script src="../../js/audioplayer.js"></script>
+
+        <!-- mandatory scripts for transition -->
+        <script defer src="../../js/swup.min.js"></script>        
+
+        <script src="../../js/canto.js" defer></script>
+
+        <!-- mandatory sripts for VEXTAB-->
+        <link href="../../css/vextab.css" media="screen" rel="Stylesheet" type="text/css" />
+        <script defer src="../../js/vextab-div.prod.js"></script>
+        <script defer src="../../js/vexflow-min.js"></script>
+        <script type="text/javascript">
+          /*const data = `
+            tabstave notation=true key=C time=4/4
+
+            notes :q =|: (5/2.5/3.7/4) :8 7-5h6/3 ^3^ 5h6-7/5 ^3^ :q 7V/4 |
+            notes :8 t12p7/4 s5s3/4 :8 3s:16:5-7/5 :q p5/4
+            text :w, |#segno, ,|, :hd, , #tr
+            `*/
+          const data = `
+            tabstave notation=true key=C time=4/4
+            notes :q =|: 3/5 :16 0h2/4 :8 0-0h0/3 2-3/4 | h3-3-2-0/4 3/5 0-2-3/4 
+
+            tabstave notation=true key=C time=4/4
+            notes  h3-3-2-0/4 3/5 0-2-3/4 | h3-3-2-0/4 3/5 5-6-8/2
+          `
+          const data2 = `
+            tabstave notation=true key=C time=4/4
+            notes :q =|: 3/5 :16 0h2/4 :8 0-0h0/3 2-3/4 | h3-3-2-0/4 3/5 0-2-3/4 
+          `
+          const data3 = `
+            tabstave notation=true key=C time=4/4
+            notes :q =|: 3/5 :16 0h2/4 :8 0-0h0/3 2-3/4 | h3-3-2-0/4 3/5 0-2-3/4 
+          `
+        </script>
+
+        <script defer type="module" src="../../js/gelectricaVexTab.js"></script>
+
+    </body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    </head>  
+    <body class="contenido">
+        <div class="tempo">127</div>
+        
+        <div class="canto_body"> 
+<!---------------Este es el limite----->  
+            <pre>
+INTRO:
+| G   | Em   | D   | C   | G  
+div id="boo">
+VERSO1:
+    G                                    
+Dar gracias a Dios al Señor y Rey, 
+    G     
+su amor es para siempre
+       C                                  
+Porque bueno es y sobre todo está, 
+    G     
+su amor es para siempre
+    D        C
+Cantad, cantad
+
+VERSO2:
+ G                                        
+Su brazo fuerte extendido está, 
+    G     
+su amor es para siempre
+        C                                 
+Por la vida que ha vuelto a nacer, 
+                  G     
+su amor es para siempre
+      D        C
+//Cantad, cantad//
+
+%
+CORO:
+      G                                
+Por siempre Dios es fuerte, 
+      Em
+por siempre Dios es fiel
+      D                           
+Por siempre con nosotros, 
+      C                      G     tocoda
+por siempre y siempre, por siempre
+
+VERSO3:
+ G                                          
+Desde el alba hasta el anochecer,
+    G     
+su amor es para siempre
+       C                                   
+Por su gracia si podemos seguir,
+                  G     
+su amor es para siempre
+      D        C   d.s. al coda
+//Cantad, cantad//
+
+coda
+PUENTE:
+      G
+//Su amor es para siempre//x4
+      D        C
+//Cantad, cantad//
+
+CORO2:
+        A                      
+//Por siempre Tu es fuerte, 
+      F#m
+por siempre Tu es fiel,
+      E                     
+por siempre con nosotros,
+      D                   
+por siempre y siempre//
+
+FINAL:
+      A   | F#m   | E   | D   | A 
+Por siempre
+            </pre>
+<!---------------Este es el limite-----> 
+        </div>
+
+        <!--FIREBASE SCRIPTS-->
+        <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-storage.js"></script>
+        <script src="../../js/firebase_init.js"></script>
+
+        <script src="../../js/template-cancion.js"></script>
+        <script  type="text/javascript" defer>
+            var x = document.getElementById("modoSelect");
+            var option = document.createElement("option");
+            option.text = "G.Electrica";
+            x.add(option);
+        </script>
+
+        <!-- mandatory script includes for jtab -->
+        <script src="https://jtab.tardate.com/javascripts/jquery.js" type="text/javascript"></script>
+        <script src="https://jtab.tardate.com/javascripts/raphael.js" type="text/javascript"></script>
+        <script src="https://jtab.tardate.com/javascripts/jtab.js" type="text/javascript"></script>
+
+        <!-- mandatory scripts for transposing-->
+        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+        <script type="text/javascript" src="../../js/jquery.transposer.js"></script>
+        <script type="text/javascript" src="../../js/jquery.letra.js"></script>
+        <script type="text/javascript" src="../../js/jquery.gelectrica.js"></script>
+
+        <!-- mandatory scripts for audio -->
+        <script type="text/javascript" src="../../js/audio.js"></script>
+        <script src="../../js/audioplayer.js"></script>
+
+        <!-- mandatory scripts for transition -->
+        <script defer src="../../js/swup.min.js"></script>        
+
+        <script src="../../js/canto.js" defer></script>
+
+        <!-- mandatory sripts for VEXTAB-->
+        <link href="../../css/vextab.css" media="screen" rel="Stylesheet" type="text/css" />
+        <script defer src="../../js/vextab-div.prod.js"></script>
+        <script defer src="../../js/vexflow-min.js"></script>
+        <script type="text/javascript">
+          /*const data = `
+            tabstave notation=true key=C time=4/4
+
+            notes :q =|: (5/2.5/3.7/4) :8 7-5h6/3 ^3^ 5h6-7/5 ^3^ :q 7V/4 |
+            notes :8 t12p7/4 s5s3/4 :8 3s:16:5-7/5 :q p5/4
+            text :w, |#segno, ,|, :hd, , #tr
+            `*/
+          const data = `
+            tabstave notation=true key=G time=4/4
+            notes :w | 10/1 | :h 8/1 :q 7-8/1 | :w 10/1 | :h 8/1 :q 7/1 8/1
+
+            tabstave notation=true key=G time=4/4
+            notes :w | 10/1 | :h 8/1 :q 7-8/1 | :h 10-8/2 | :w h8/2
+          `
+          
+        </script>
+
+        <script defer type="module" src="../../js/gelectricaVexTab.js"></script>
+
+    </body>
+</html>
