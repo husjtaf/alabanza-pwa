@@ -63,111 +63,6 @@ const DEMO_SONGS = [
     freeshowData: null,
     createdAt: Date.now(),
   },
-  {
-    id: "mig_1_1783035948183",
-    titulo: "Abre Mis Ojos",
-    autor: "Danilo Montero",
-    tono: "E",
-    tempo: 131,
-    categoria: [],
-    tags: [],
-    secciones: [
-      {
-        id: "sec_0_1783035948183",
-        tipo: "INTRO",
-        numero: 1,
-        contenido: "E\n\n%"
-      },
-      {
-        "id": "sec_1_1783035948183",
-        "tipo": "VERSO",
-        "numero": 1,
-        "contenido": "E\nAbre mis ojos oh Cristo\nB/D#\nAbre mis ojos te pido\n           C#m  A           E | D ─ A |   \nYo quiero verte, yo quiero verte"
-      },
-      {
-        "id": "sec_2_1783035948183",
-        "tipo": "VERSO",
-        "numero": 2,
-        "contenido": "E\nAbre mis ojos oh Cristo\nB/D#\nAbre mis ojos te pido\n           C#m  A           E   \nYo quiero verte, yo quiero verte"
-      },
-      {
-        "id": "sec_3_1783035948183",
-        "tipo": "CORO",
-        "numero": 1,
-        "contenido": "        B            C#m\nY contemplar Tu majestad\nA                        Bsus\ny el resplandor de Tu gloria\n  B                C#m\nDerrama Tu amor y poder\n            F#m7    E/G#   A    B   d.s.\nmientras cantamos: Santo, Santo"
-      },
-      {
-        "id": "sec_4_1783035948183",
-        "tipo": "PUENTE",
-        "numero": 1,
-        "contenido": "  E\n//Santo, Santo, Santo\nB/D#\nSanto, Santo, Santo\nC#m            A\nSanto, Santo, Santo\n          E\nyo quiero verte//"
-      },
-      {
-        "id": "sec_5_1783035948183",
-        "tipo": "CORO",
-        "numero": 2,
-        "contenido": "        B            C#m\nY contemplar Tu majestad\nA                        Bsus\ny el resplandor de Tu gloria\n  B                C#m\nDerrama Tu amor y poder\n            F#m7    E/G#   A      \nmientras cantamos: Santo, Santo"
-      },
-      {
-        "id": "sec_6_1783035948183",
-        "tipo": "FINAL",
-        "numero": 1,
-        "contenido": "E\nSanto, Santo, Santo\nB/D#\nSanto, Santo, Santo\nC#m            A\nSanto, Santo, Santo\n          E\nyo quiero verte"
-      }
-    ],
-    ensayo: {
-      youtubeId: "",
-      pistas: [
-        {
-          "tipo": "original",
-          "label": "Original completo",
-          "url": "",
-          "volumen": 100
-        },
-        {
-          "tipo": "aumentada",
-          "label": "Mezcla aumentada (+voz guía)",
-          "url": "",
-          "volumen": 100
-        },
-        {
-          "tipo": "disminuida",
-          "label": "Mezcla disminuida (-voz guía)",
-          "url": "",
-          "volumen": 100
-        },
-        {
-          "tipo": "bajo",
-          "label": "Solo bajo",
-          "url": "",
-          "volumen": 100
-        },
-        {
-          "tipo": "teclado",
-          "label": "Solo teclado",
-          "url": "",
-          "volumen": 100
-        },
-        {
-          "tipo": "guitarra",
-          "label": "Solo guitarra",
-          "url": "",
-          "volumen": 100
-        },
-        {
-          "tipo": "bateria",
-          "label": "Solo batería",
-          "url": "",
-          "volumen": 100
-        }
-      ],
-      notas: "",
-      bpmEnsayo: 80
-    },
-    freeshowData: null,
-    createdAt: 1783035948184,
-    _sourceFile: "abre_mis_ojos-dm.html"
-  },
 ];
 
 const DEMO_SETLISTS = [
@@ -200,16 +95,16 @@ const INSTRUMENTOS_PISTA = [
 // Tokens: dark (default) y light
 const THEMES = {
   dark: {
-    bg:"#0f0f14", surface:"#1e1e2e", surface2:"#12121c", border:"#2a2a4a",
-    border2:"#3a3a5a", text:"#e8e8f0", textSub:"#6b7280", textMid:"#c8c8e0",
-    accent:"#6366f1", accentSub:"#818cf8", navBg:"linear-gradient(180deg,#1a1a2e,#16213e)",
-    inputBg:"#2a2a4a", pre:"#12121c", preText:"#d4d4e8",
+    bg:"#0d1117", surface:"#161b22", surface2:"#0d1117", border:"#21262d",
+    border2:"#30363d", text:"#e6edf3", textSub:"#7d8590", textMid:"#c9d1d9",
+    accent:"#0ea5e9", accentSub:"#38bdf8", navBg:"linear-gradient(180deg,#161b22,#0d1117)",
+    inputBg:"#21262d", pre:"#0d1117", preText:"#c9d1d9",
   },
   light: {
-    bg:"#f4f4f8", surface:"#ffffff", surface2:"#f0f0f6", border:"#e0e0ee",
-    border2:"#c8c8e0", text:"#18182a", textSub:"#6b6b80", textMid:"#3a3a5a",
-    accent:"#5254cc", accentSub:"#6366f1", navBg:"linear-gradient(180deg,#e8e8f8,#d8d8ee)",
-    inputBg:"#f0f0fa", pre:"#f0f0f6", preText:"#2a2a4a",
+    bg:"#f0f6ff", surface:"#ffffff", surface2:"#f0f6ff", border:"#d0d7de",
+    border2:"#b0bbc6", text:"#1f2328", textSub:"#636c76", textMid:"#24292f",
+    accent:"#0284c7", accentSub:"#0ea5e9", navBg:"linear-gradient(180deg,#ffffff,#f0f6ff)",
+    inputBg:"#f6f8fa", pre:"#f6f8fa", preText:"#24292f",
   },
 };
 // Theme is passed as prop; hooks live in App
@@ -685,20 +580,44 @@ function transposeText(text, semitones) {
 }
 
 // ─── FREESHOW EXPORT ──────────────────────────────────────────────────────────
+// Convierte texto con brackets [G][Am] a texto plano eliminando los brackets
+function stripBracketChords(text) {
+  return text.replace(/\[([A-G][^\]]*)\]/g, "");
+}
+// Extrae solo los acordes entre brackets para líneas de acordes
+function extractBracketChords(text) {
+  const matches = text.match(/\[([A-G][^\]]*)\]/g);
+  return matches ? matches.map(m=>m.slice(1,-1)).join("  ") : "";
+}
+// Transpone texto con acordes en brackets [G] → [A] si semitones=2
+function transposeBracketText(text, semitones) {
+  if (semitones === 0) return text;
+  return text.replace(/\[([A-G][^\]]*)\]/g, (_, chord) => `[${transposeChord(chord, semitones)}]`);
+}
+// Detecta si el contenido usa formato bracket o formato clásico (acordes en línea separada)
+function isBracketFormat(text) {
+  return /\[[A-G][^\]]*\]/.test(text);
+}
 function songToFreeShow(song, semitones = 0) {
-  const slides = song.secciones.map((sec, i) => ({
-    id: `slide_${i}`,
-    group: `${sec.tipo} ${sec.numero}`,
-    color: sec.tipo === "CORO" ? "#4A90D9" : sec.tipo === "VERSO" ? "#2ECC71" : "#E67E22",
-    globalGroup: sec.tipo.toLowerCase(),
-    items: [{
-      id: `item_${i}`,
-      lines: transposeText(sec.contenido, semitones).split("\n").map(line => ({
-        align: "",
-        text: [{ value: line, style: "" }],
-      })),
-    }],
-  }));
+  const slides = song.secciones.map((sec, i) => {
+    // Support both bracket format and classic format
+    const raw = isBracketFormat(sec.contenido)
+      ? transposeBracketText(sec.contenido, semitones).replace(/\[[^\]]*\]/g, "")  // export clean text
+      : transposeText(sec.contenido, semitones);
+    return {
+      id: `slide_${i}`,
+      group: `${sec.tipo} ${sec.numero}`,
+      color: sec.tipo === "CORO" ? "#4A90D9" : sec.tipo === "VERSO" ? "#2ECC71" : "#E67E22",
+      globalGroup: sec.tipo.toLowerCase(),
+      items: [{
+        id: `item_${i}`,
+        lines: raw.split("\n").map(line => ({
+          align: "",
+          text: [{ value: line, style: "" }],
+        })),
+      }],
+    };
+  });
 
   return {
     name: song.titulo,
@@ -706,10 +625,7 @@ function songToFreeShow(song, semitones = 0) {
     key: transposeChord(song.tono, semitones),
     bpm: song.tempo,
     slides,
-    metadata: {
-      exportedFrom: "Alabanza PWA",
-      version: "1.0",
-    },
+    metadata: { exportedFrom: "Alabanza PWA", version: "1.0" },
   };
 }
 
@@ -808,25 +724,35 @@ function makeStyles(T) {
 // Static S for components that receive theme separately; overridden where T is passed
 const S = makeStyles(THEMES.dark);
 
-// ─── SECCION CARD ─────────────────────────────────────────────────────────────
+// ─── SECCION CARD (editor list) ───────────────────────────────────────────────
 function SeccionCard({ sec, onEdit, onDelete, onMoveUp, onMoveDown, semitones }) {
-  const color = S.tipoColor[sec.tipo] || "#6366f1";
+  const color = S.tipoColor[sec.tipo] || "#0ea5e9";
+  const TIPO_ABR = { VERSO:"V", CORO:"C", "PRE-CORO":"PC", PUENTE:"P", INTRO:"I", FINAL:"F", OUTRO:"O", INTERLUDIO:"IL", TAG:"T", SOLO:"S" };
+  const abr = (TIPO_ABR[sec.tipo]||sec.tipo[0]) + sec.numero;
+  // Preview: first non-empty line of the content
+  const preview = sec.contenido.split("\n").find(l=>l.trim())||"";
+
   return (
-    <div style={{ ...S.card, borderLeft:`3px solid ${color}`, padding:"12px" }}>
-      <div style={S.between}>
-        <div style={S.row(8)}>
-          <span style={S.chip(color)}>{sec.tipo} {sec.numero}</span>
+    <div style={{ borderRadius:"14px", overflow:"hidden", marginBottom:"10px", border:`1.5px solid ${color}55` }}>
+      {/* Header colorido */}
+      <div style={{ background:color, padding:"10px 14px", display:"flex", alignItems:"center", gap:"10px" }}>
+        <div style={{ background:"rgba(0,0,0,0.25)", color:"#fff", borderRadius:"50%", width:"30px", height:"30px", display:"flex", alignItems:"center", justifyContent:"center", fontWeight:800, fontSize:"11px", flexShrink:0 }}>
+          {abr}
         </div>
-        <div style={S.row(4)}>
-          <button style={S.btn("ghost",true)} onClick={onMoveUp} title="Subir">▲</button>
-          <button style={S.btn("ghost",true)} onClick={onMoveDown} title="Bajar">▼</button>
-          <button style={S.btn("ghost",true)} onClick={onEdit}><Icon name="edit" size={14}/></button>
-          <button style={{ ...S.btn("ghost",true), color:"#ef4444" }} onClick={onDelete}><Icon name="delete" size={14}/></button>
+        <span style={{ fontWeight:800, fontSize:"14px", color:"#fff", flex:1 }}>
+          {sec.tipo.charAt(0)+sec.tipo.slice(1).toLowerCase()} {sec.numero}
+        </span>
+        <button style={{ background:"rgba(255,255,255,0.15)", border:"none", borderRadius:"8px", padding:"4px 8px", cursor:"pointer", color:"#fff" }} onClick={onMoveUp}>▲</button>
+        <button style={{ background:"rgba(255,255,255,0.15)", border:"none", borderRadius:"8px", padding:"4px 8px", cursor:"pointer", color:"#fff" }} onClick={onMoveDown}>▼</button>
+        <button style={{ background:"rgba(255,255,255,0.15)", border:"none", borderRadius:"8px", padding:"4px 8px", cursor:"pointer", color:"#fff" }} onClick={onEdit}><Icon name="edit" size={13}/></button>
+        <button style={{ background:"rgba(0,0,0,0.2)", border:"none", borderRadius:"8px", padding:"4px 8px", cursor:"pointer", color:"#ffaaaa" }} onClick={onDelete}><Icon name="delete" size={13}/></button>
+      </div>
+      {/* Preview del contenido */}
+      <div style={{ background:THEMES.dark.surface, padding:"10px 14px" }}>
+        <div style={{ fontFamily:"'Courier New',monospace", fontSize:"12px", color:THEMES.dark.textSub, overflow:"hidden", textOverflow:"ellipsis", whiteSpace:"nowrap" }}>
+          {preview || <span style={{fontStyle:"italic", color:THEMES.dark.textSub}}>Sin contenido</span>}
         </div>
       </div>
-      <pre style={{ ...S.pre, marginTop:"8px", fontSize:"12px" }}>
-        {semitones !== 0 ? transposeText(sec.contenido, semitones) : sec.contenido}
-      </pre>
     </div>
   );
 }
@@ -836,39 +762,107 @@ function SeccionEditor({ sec, onSave, onCancel }) {
   const [tipo, setTipo] = useState(sec?.tipo || "VERSO");
   const [numero, setNumero] = useState(sec?.numero || 1);
   const [contenido, setContenido] = useState(sec?.contenido || "");
+  const [showHelp, setShowHelp] = useState(false);
+
+  // Live preview: render bracket chords inline highlighted
+  function renderPreview(text) {
+    if (!text.trim()) return null;
+    return text.split("\n").map((line, li) => {
+      const parts = line.split(/(\[[A-G][^\]]*\])/g);
+      return (
+        <div key={li} style={{ fontFamily:"'Courier New',monospace", fontSize:"13px", lineHeight:1.7, minHeight:"20px", whiteSpace:"pre-wrap", wordBreak:"break-word" }}>
+          {parts.map((part, pi) =>
+            /^\[[A-G][^\]]*\]$/.test(part)
+              ? <span key={pi} style={{ color:"#38bdf8", fontWeight:700 }}>{part}</span>
+              : <span key={pi} style={{ color:THEMES.dark.text }}>{part}</span>
+          )}
+        </div>
+      );
+    });
+  }
+
+  const color = S.tipoColor[tipo] || "#0ea5e9";
+  const TIPO_ABR = { VERSO:"V", CORO:"C", "PRE-CORO":"PC", PUENTE:"P", INTRO:"I", FINAL:"F", OUTRO:"O", INTERLUDIO:"IL", TAG:"T", SOLO:"S" };
+  const abr = (TIPO_ABR[tipo]||tipo[0]) + numero;
+
   return (
-    <div style={S.modal}>
-      <div style={{ ...S.between, marginBottom:"16px" }}>
-        <span style={S.h2}>{sec ? "Editar sección" : "Nueva sección"}</span>
-        <button style={S.btn("ghost",true)} onClick={onCancel}><Icon name="close" size={16}/></button>
-      </div>
-      <div style={{ display:"grid", gridTemplateColumns:"1fr 80px", gap:"8px", marginBottom:"12px" }}>
-        <div>
-          <label style={S.label}>Tipo de sección</label>
-          <select style={{ ...S.select, width:"100%" }} value={tipo} onChange={e=>setTipo(e.target.value)}>
-            {TIPOS_SECCION.map(t=><option key={t}>{t}</option>)}
-          </select>
+    <div style={{ background:THEMES.dark.surface, borderRadius:"16px", padding:"0", width:"100%", maxWidth:"600px", border:`1px solid ${THEMES.dark.border2}`, overflow:"hidden" }}>
+      {/* Header colorido del modal */}
+      <div style={{ background:color, padding:"14px 16px", display:"flex", alignItems:"center", gap:"10px" }}>
+        <div style={{ background:"rgba(0,0,0,0.25)", color:"#fff", borderRadius:"50%", width:"32px", height:"32px", display:"flex", alignItems:"center", justifyContent:"center", fontWeight:800, fontSize:"12px" }}>
+          {abr}
         </div>
-        <div>
-          <label style={S.label}>Número</label>
-          <input style={S.input} type="number" min={1} max={10} value={numero} onChange={e=>setNumero(+e.target.value)}/>
-        </div>
-      </div>
-      <div style={{marginBottom:"12px"}}>
-        <label style={S.label}>Letra y acordes</label>
-        <textarea
-          style={{ ...S.textarea, minHeight:"180px" }}
-          value={contenido}
-          onChange={e=>setContenido(e.target.value)}
-          placeholder="Escribe acordes encima de la letra..."
-        />
-        <p style={{ ...S.sub, marginTop:"4px" }}>Coloca los acordes en la línea de arriba de la letra correspondiente.</p>
-      </div>
-      <div style={{ ...S.row(8), justifyContent:"flex-end" }}>
-        <button style={S.btn("secondary")} onClick={onCancel}>Cancelar</button>
-        <button style={S.btn("primary")} onClick={()=>onSave({ tipo, numero, contenido })}>
-          <Icon name="save" size={16}/> Guardar
+        <span style={{ fontWeight:800, fontSize:"16px", color:"#fff", flex:1 }}>
+          {sec ? "Editar sección" : "Nueva sección"}
+        </span>
+        <button style={{ background:"rgba(255,255,255,0.2)", border:"none", borderRadius:"8px", padding:"6px 8px", cursor:"pointer", color:"#fff" }} onClick={onCancel}>
+          <Icon name="close" size={16}/>
         </button>
+      </div>
+
+      <div style={{ padding:"16px" }}>
+        {/* Tipo + número */}
+        <div style={{ display:"grid", gridTemplateColumns:"1fr 80px", gap:"8px", marginBottom:"14px" }}>
+          <div>
+            <label style={S.label}>Tipo de sección</label>
+            <select style={{ ...S.select, width:"100%", borderColor:color+"88" }} value={tipo} onChange={e=>setTipo(e.target.value)}>
+              {TIPOS_SECCION.map(t=><option key={t}>{t}</option>)}
+            </select>
+          </div>
+          <div>
+            <label style={S.label}>Número</label>
+            <input style={{ ...S.input, borderColor:color+"88" }} type="number" min={1} max={10} value={numero} onChange={e=>setNumero(+e.target.value)}/>
+          </div>
+        </div>
+
+        {/* Instrucciones del formato bracket */}
+        <div style={{ background:THEMES.dark.bg, borderRadius:"10px", padding:"10px 12px", marginBottom:"10px", border:`1px solid ${THEMES.dark.border}` }}>
+          <div style={{ display:"flex", alignItems:"center", justifyContent:"space-between", marginBottom:showHelp?"8px":"0" }}>
+            <span style={{ fontSize:"12px", color:"#38bdf8", fontWeight:700 }}>💡 Formato de acordes con [ ]</span>
+            <button style={{ background:"none", border:"none", color:THEMES.dark.textSub, cursor:"pointer", fontSize:"12px" }} onClick={()=>setShowHelp(h=>!h)}>
+              {showHelp?"Ocultar":"Ver cómo"}
+            </button>
+          </div>
+          {showHelp && (
+            <div style={{ fontSize:"12px", color:THEMES.dark.textMid, lineHeight:1.7 }}>
+              <p style={{margin:"0 0 6px"}}>Coloca el acorde entre corchetes <strong style={{color:"#38bdf8"}}>[G]</strong> justo antes de la sílaba donde cae.</p>
+              <div style={{ background:THEMES.dark.surface, borderRadius:"8px", padding:"8px", fontFamily:"monospace", fontSize:"12px" }}>
+                <div><span style={{color:"#38bdf8"}}>[G]</span>Nos hemos congregado <span style={{color:"#38bdf8"}}>[C/G]</span>en este día</div>
+                <div>para dar<span style={{color:"#38bdf8"}}>[D]</span>le gloria</div>
+              </div>
+              <p style={{margin:"6px 0 0", color:THEMES.dark.textSub}}>Al agrandar el texto los acordes se quedan pegados a la letra, sin desfasarse.</p>
+            </div>
+          )}
+        </div>
+
+        {/* Textarea */}
+        <div style={{marginBottom:"12px"}}>
+          <label style={S.label}>Letra y acordes</label>
+          <textarea
+            style={{ ...S.textarea, minHeight:"180px", border:`1px solid ${color}66` }}
+            value={contenido}
+            onChange={e=>setContenido(e.target.value)}
+            placeholder={"[G]Nos hemos congregado [C/G]en este día\npara dar[D]le gloria"}
+            spellCheck={false}
+          />
+        </div>
+
+        {/* Live preview */}
+        {contenido.trim() && (
+          <div style={{ marginBottom:"12px" }}>
+            <label style={S.label}>Vista previa</label>
+            <div style={{ background:THEMES.dark.bg, borderRadius:"10px", padding:"12px 14px", border:`1px solid ${THEMES.dark.border}`, lineHeight:1.7 }}>
+              {renderPreview(contenido)}
+            </div>
+          </div>
+        )}
+
+        <div style={{ display:"flex", gap:"8px", justifyContent:"flex-end" }}>
+          <button style={S.btn("secondary")} onClick={onCancel}>Cancelar</button>
+          <button style={{ ...S.btn("primary"), background:color }} onClick={()=>onSave({ tipo, numero, contenido })}>
+            <Icon name="save" size={16}/> Guardar
+          </button>
+        </div>
       </div>
     </div>
   );
@@ -1029,200 +1023,532 @@ function EnsayoPanel({ ensayo, onSave }) {
 function SongView({ song, allSongs, onBack, onEdit, onUpdate, theme }) {
   const T = theme || THEMES.dark;
   const Ts = makeStyles(T);
-  const [tab, setTab] = useState("acordes");
+
+  const [viewMode, setViewMode]   = useState("acordes");
   const [semitones, setSemitones] = useState(0);
-  const [fontSize, setFontSize] = useState(13);
-  const [showFreeShowExport, setShowFreeShowExport] = useState(false);
+  const [fontSize, setFontSize]   = useState(18);
+  const [showConfig, setShowConfig] = useState(false);
+  const [showTonoPopup, setShowTonoPopup] = useState(false); // ← nuevo: popup de tono
+  const [activeTab, setActiveTab]   = useState(null);
   const [freeshowJson, setFreeshowJson] = useState("");
-  const [showChords, setShowChords] = useState(false);
-  const [activeSec, setActiveSec] = useState(null);
+  const [showFSJson, setShowFSJson]   = useState(false);
+  const [notas, setNotas]     = useState(song.notas || "");
+  const [notasSaved, setNotasSaved] = useState(true);
+
+  const currentTono = transposeChord(song.tono, semitones);
+  const semDisplay  = semitones > 0 ? `+${semitones}` : semitones < 0 ? `${semitones}` : "0";
+  const allChordText = song.secciones.map(s=>s.contenido).join("\n");
+  const TIPO_ABR = { VERSO:"V", CORO:"C", "PRE-CORO":"PC", PUENTE:"P", INTRO:"I", FINAL:"F", OUTRO:"O", INTERLUDIO:"IL", TAG:"T", SOLO:"S" };
 
   function exportFreeShow() {
     const data = songToFreeShow(song, semitones);
     setFreeshowJson(JSON.stringify(data, null, 2));
-    setShowFreeShowExport(true);
+    setShowFSJson(true);
   }
   function downloadFreeShow() {
     const blob = new Blob([freeshowJson], {type:"application/json"});
     const a = document.createElement("a"); a.href = URL.createObjectURL(blob);
     a.download = `${song.titulo.replace(/\s/g,"_")}.json`; a.click();
   }
+  function saveNotas() { onUpdate({...song, notas}); setNotasSaved(true); }
 
-  const currentTono = transposeChord(song.tono, semitones);
-  const semDisplay = semitones > 0 ? `+${semitones}` : semitones < 0 ? `${semitones}` : "0";
+  // ── Renderiza texto con acordes en brackets o clásico ─────────────────────
+  function renderSection(rawText, mode) {
+    const transposed = isBracketFormat(rawText)
+      ? transposeBracketText(rawText, semitones)
+      : transposeText(rawText, semitones);
 
-  // All chord text (for chord panel)
-  const allChordText = song.secciones.map(s=>s.contenido).join("\n");
-
-  return (
-    <div style={{ background:T.bg, minHeight:"100vh" }}>
-      {/* Header */}
-      <div style={{ ...Ts.card, marginBottom:"8px", background:`linear-gradient(135deg,${T.accent}22,${T.surface})` }}>
-        <div style={{ ...Ts.row(10), marginBottom:"8px" }}>
-          <button style={Ts.btn("ghost",true)} onClick={onBack}><Icon name="back" size={18}/></button>
-          <div style={{flex:1}}>
-            <div style={Ts.h1}>{song.titulo}</div>
-            <div style={{ ...Ts.sub, marginTop:"2px" }}>{song.autor}</div>
-          </div>
-          <button style={Ts.btn("ghost",true)} onClick={onEdit}><Icon name="edit" size={18}/></button>
+    if (mode === "letra") {
+      // Solo letra: quita brackets/acordes
+      const clean = isBracketFormat(transposed)
+        ? transposed.replace(/\[[^\]]*\]/g, "")
+        : transposed.split("\n").filter(line=>{
+            const w = line.trim().split(/\s+/);
+            const cc = w.filter(x=>/^[A-G][#b]?/.test(x)).length;
+            return !(cc>0 && cc/Math.max(w.length,1)>0.4 && !/[a-záéíóúñ]{3}/i.test(line));
+          }).join("\n");
+      return (
+        <div style={{ fontFamily:"'Georgia',serif", fontSize:`${fontSize}px`, lineHeight:1.8, color:T.text, whiteSpace:"pre-wrap", wordBreak:"break-word" }}>
+          {clean}
         </div>
-        <div style={{ display:"flex", flexWrap:"wrap", gap:"6px" }}>
-          <span style={Ts.chip("#6366f1")}>♩= {song.tempo}</span>
-          <span style={Ts.chip("#10b981")}>🎵 {currentTono}</span>
-          {song.categoria.map(c=><span key={c} style={Ts.chip("#f59e0b")}>{c}</span>)}
-        </div>
-      </div>
+      );
+    }
 
-      {/* ── SEQUENCE BAR ── */}
-      {song.secciones.length > 0 && (
-        <div style={{ background:T.surface, borderRadius:"10px", padding:"8px 10px", marginBottom:"8px", border:`1px solid ${T.border}` }}>
-          <div style={{ fontSize:"10px", color:T.textSub, fontWeight:700, marginBottom:"4px", textTransform:"uppercase", letterSpacing:"0.5px" }}>
-            Secuencia
-          </div>
-          <SectionSequenceBar secciones={song.secciones} theme={T}
-            onJump={(idx)=>setActiveSec(idx)}/>
-        </div>
-      )}
-
-      {/* Transpose + font (acordes tab) */}
-      {(tab === "acordes" || tab === "diagramas") && (
-        <div style={{ ...Ts.card, padding:"8px 10px", display:"flex", alignItems:"center", gap:"8px", marginBottom:"8px", flexWrap:"wrap" }}>
-          <span style={{ ...Ts.sub, whiteSpace:"nowrap" }}>Transportar:</span>
-          <button style={Ts.btn("secondary",true)} onClick={()=>setSemitones(s=>s-1)}>−½</button>
-          <span style={{ ...Ts.badge(T.accentSub), minWidth:"32px", textAlign:"center" }}>{semDisplay}</span>
-          <button style={Ts.btn("secondary",true)} onClick={()=>setSemitones(s=>s+1)}>+½</button>
-          {semitones!==0 && <button style={Ts.btn("ghost",true)} onClick={()=>setSemitones(0)}>Reset</button>}
-          <div style={{flex:1}}/>
-          {tab==="acordes" && <>
-            <button style={Ts.btn("ghost",true)} onClick={()=>setFontSize(f=>Math.max(10,f-1))}>A−</button>
-            <span style={{ fontSize:"11px", color:T.textSub }}>{fontSize}</span>
-            <button style={Ts.btn("ghost",true)} onClick={()=>setFontSize(f=>Math.min(22,f+1))}>A+</button>
-          </>}
-        </div>
-      )}
-
-      {/* Tabs */}
-      <div style={{ display:"flex", gap:"3px", marginBottom:"10px", background:T.surface, borderRadius:"10px", padding:"3px", border:`1px solid ${T.border}` }}>
-        {[
-          ["acordes","🎸 Acordes"],
-          ["letra","📝 Letra"],
-          ["diagramas","🎵 Diagramas"],
-          ["ensayo","🎙 Ensayo"],
-          ["freeshow","📺 FreeShow"],
-        ].map(([key,label])=>(
-          <button key={key} style={{ flex:1, padding:"7px 2px", border:"none", borderRadius:"7px", cursor:"pointer", fontSize:"11px", fontWeight:600, transition:"all 0.15s",
-            background: tab===key ? T.accent : "transparent",
-            color: tab===key ? "#fff" : T.textSub, whiteSpace:"nowrap" }}
-            onClick={()=>setTab(key)}>{label}</button>
-        ))}
-      </div>
-
-      {/* ── ACORDES ── */}
-      {tab === "acordes" && (
+    if (isBracketFormat(transposed)) {
+      // FORMATO BRACKET: [G]texto → acorde inline resaltado
+      return (
         <div>
-          {song.secciones.map((sec, idx) => {
-            const color = S.tipoColor[sec.tipo] || T.accent;
-            const text = transposeText(sec.contenido, semitones);
+          {transposed.split("\n").map((line, li) => {
+            const parts = line.split(/(\[[A-G][^\]]*\])/g);
+            const hasChord = parts.some(p=>/^\[[A-G]/.test(p));
             return (
-              <div key={sec.id} id={`sec-card-${idx}`}
-                style={{ background:T.surface, borderRadius:"10px", borderLeft:`3px solid ${color}`, marginBottom:"8px", padding:"10px 12px", border:`1px solid ${T.border}`, borderLeftColor:color, borderLeftWidth:"3px" }}>
-                <span style={{ ...Ts.chip(color), marginBottom:"8px", display:"inline-block" }}>{sec.tipo} {sec.numero}</span>
-                <pre style={{ ...Ts.pre, fontSize:`${fontSize}px` }}>{text}</pre>
+              <div key={li} style={{
+                fontFamily:"'Courier New',monospace",
+                fontSize:`${fontSize}px`,
+                lineHeight: 1.8,
+                minHeight: line.trim()===""?`${fontSize*0.5}px`:undefined,
+                whiteSpace:"pre-wrap",
+                wordBreak:"break-word",
+                color: T.text,
+              }}>
+                {parts.map((part, pi) =>
+                  /^\[[A-G][^\]]*\]$/.test(part)
+                    ? <span key={pi} style={{ color:T.accentSub, fontWeight:800, fontSize:`${fontSize-1}px` }}>{part.slice(1,-1)}</span>
+                    : <span key={pi}>{part}</span>
+                )}
               </div>
             );
           })}
         </div>
-      )}
+      );
+    }
 
-      {/* ── LETRA ── */}
-      {tab === "letra" && (
-        <div>
-          {song.secciones.map((sec, idx) => {
-            const color = S.tipoColor[sec.tipo] || T.accent;
-            const text = sec.contenido.split("\n").filter(line => {
-              const words = line.trim().split(/\s+/);
-              const chordCount = words.filter(w=>/^[A-G][#b]?/.test(w)).length;
-              return !(chordCount > 0 && chordCount/words.length > 0.5 && line.trim().length > 0 && !/[a-záéíóúñ]{3}/i.test(line));
-            }).join("\n");
-            return (
-              <div key={sec.id} id={`sec-card-${idx}`}
-                style={{ background:T.surface, borderRadius:"10px", marginBottom:"8px", padding:"10px 12px", border:`1px solid ${T.border}`, borderLeft:`3px solid ${color}` }}>
-                <span style={{ ...Ts.chip(color), marginBottom:"8px", display:"inline-block" }}>{sec.tipo} {sec.numero}</span>
-                <pre style={{ ...Ts.pre, fontSize:`${fontSize}px` }}>{text}</pre>
-              </div>
-            );
-          })}
-        </div>
-      )}
-
-      {/* ── DIAGRAMAS ── */}
-      {tab === "diagramas" && (
-        <div>
-          {/* Diagramas globales del canto */}
-          <div style={{ background:T.surface, borderRadius:"12px", padding:"14px", border:`1px solid ${T.border}`, marginBottom:"10px" }}>
-            <div style={{ fontSize:"13px", fontWeight:700, color:T.accentSub, marginBottom:"10px", textTransform:"uppercase", letterSpacing:"0.5px" }}>
-              Acordes del canto completo
+    // FORMATO CLÁSICO: acordes en línea separada (arriba de la letra)
+    return (
+      <div>
+        {transposed.split("\n").map((line, li) => {
+          const w = line.trim().split(/\s+/);
+          const isChord = w.filter(x=>/^[A-G][#b]?/.test(x)).length > 0
+            && w.filter(x=>/^[A-G][#b]?/.test(x)).length / Math.max(w.length,1) > 0.4
+            && !/[a-záéíóúñ]{3}/i.test(line);
+          return (
+            <div key={li} style={{
+              fontFamily:"'Courier New',monospace",
+              fontSize: isChord ? `${fontSize-1}px` : `${fontSize}px`,
+              lineHeight: 1.6,
+              color: isChord ? T.accentSub : T.text,
+              fontWeight: isChord ? 700 : 400,
+              minHeight: line.trim()===""?`${fontSize*0.5}px`:undefined,
+              whiteSpace:"pre-wrap",
+              wordBreak:"break-word",
+            }}>
+              {line||" "}
             </div>
-            <ChordPanel text={allChordText} semitones={semitones} theme={T}/>
+          );
+        })}
+      </div>
+    );
+  }
+
+  // ── Panel de configuración ────────────────────────────────────────────────
+  const ConfigPanel = () => (
+    <div style={{ position:"fixed", inset:0, zIndex:300, display:"flex", flexDirection:"column", background:T.bg }}>
+      <div style={{ display:"flex", alignItems:"center", gap:"12px", padding:"16px 16px 12px", borderBottom:`1px solid ${T.border}` }}>
+        <button style={{ background:"none", border:"none", cursor:"pointer", color:T.text, padding:4 }} onClick={()=>setShowConfig(false)}>
+          <Icon name="close" size={22}/>
+        </button>
+        <span style={{ fontWeight:800, fontSize:"18px", color:T.text }}>Preferencias</span>
+      </div>
+      <div style={{ flex:1, overflowY:"auto", padding:"16px" }}>
+        {/* Editar canción */}
+        <div style={{ background:T.surface, borderRadius:"12px", marginBottom:"16px", border:`1px solid ${T.border}` }}>
+          <button style={{ width:"100%", display:"flex", alignItems:"center", gap:"12px", padding:"14px 16px", background:"none", border:"none", cursor:"pointer", color:T.accent }}
+            onClick={()=>{ setShowConfig(false); onEdit(); }}>
+            <Icon name="edit" size={18}/>
+            <span style={{ flex:1, fontWeight:600, fontSize:"15px", textAlign:"left" }}>Editar canción</span>
+            <Icon name="back" size={16}/>
+          </button>
+        </div>
+
+        {/* Tempo + Tamaño fuente */}
+        <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:"10px", marginBottom:"16px" }}>
+          <div>
+            <label style={{ ...Ts.label, marginBottom:"6px" }}>Tempo</label>
+            <div style={{ background:T.surface, borderRadius:"10px", padding:"12px 14px", border:`1px solid ${T.border}`, fontSize:"15px", color:T.textSub }}>
+              ♩= {song.tempo} bpm
+            </div>
           </div>
-          {/* Por sección */}
-          {song.secciones.map((sec,idx)=>{
-            const color = S.tipoColor[sec.tipo]||T.accent;
-            return (
-              <div key={sec.id} style={{ background:T.surface, borderRadius:"10px", marginBottom:"8px", padding:"10px 12px", border:`1px solid ${T.border}`, borderLeft:`3px solid ${color}` }}>
-                <div style={{ ...Ts.chip(color), marginBottom:"8px", display:"inline-block" }}>{sec.tipo} {sec.numero}</div>
-                <ChordPanel text={sec.contenido} semitones={semitones} theme={T}/>
+          <div>
+            <label style={{ ...Ts.label, marginBottom:"6px" }}>Tamaño de letra</label>
+            <div style={{ background:T.surface, borderRadius:"10px", border:`1px solid ${T.border}`, display:"flex", alignItems:"center" }}>
+              <button style={{ flex:1, padding:"12px", background:"none", border:"none", cursor:"pointer", color:T.textSub, fontSize:"16px" }} onClick={()=>setFontSize(f=>Math.max(12,f-1))}>A−</button>
+              <span style={{ color:T.text, fontWeight:700, fontSize:"15px" }}>{fontSize}px</span>
+              <button style={{ flex:1, padding:"12px", background:"none", border:"none", cursor:"pointer", color:T.textSub, fontSize:"16px" }} onClick={()=>setFontSize(f=>Math.min(28,f+1))}>A+</button>
+            </div>
+          </div>
+        </div>
+
+        {/* Vista de canción */}
+        <label style={{ ...Ts.label, marginBottom:"8px" }}>Vista de canción</label>
+        <div style={{ display:"flex", background:T.surface, borderRadius:"10px", border:`1px solid ${T.border}`, overflow:"hidden", marginBottom:"16px" }}>
+          {[["acordes","Acordes"],["letra","Solo letra"]].map(([k,l])=>(
+            <button key={k} style={{ flex:1, padding:"12px", border:"none", cursor:"pointer", fontWeight:600, fontSize:"14px",
+              background:viewMode===k?T.accent:"transparent", color:viewMode===k?"#fff":T.textMid }}
+              onClick={()=>setViewMode(k)}>{l}</button>
+          ))}
+        </div>
+
+        {/* Herramientas */}
+        <label style={{ ...Ts.label, marginBottom:"8px" }}>Herramientas</label>
+        <div style={{ background:T.surface, borderRadius:"12px", border:`1px solid ${T.border}`, overflow:"hidden" }}>
+          {[
+            ["ensayo",    "🎙", "Pistas de ensayo",     "Mezclas aumentada/disminuida por instrumento"],
+            ["diagramas", "🎸", "Diagramas de acordes", "Guitarra y piano"],
+            ["notas",     "📝", "Notas del canto",      song.notas?"Con notas guardadas":"Sin notas aún"],
+            ["freeshow",  "📺", "Exportar a FreeShow",  "Genera JSON para presentación"],
+          ].map(([key,icon,title,sub],i,arr)=>(
+            <button key={key}
+              style={{ width:"100%", display:"flex", alignItems:"center", gap:"12px", padding:"14px 16px", background:"none", border:"none",
+                borderBottom:i<arr.length-1?`1px solid ${T.border}`:"none", cursor:"pointer", textAlign:"left" }}
+              onClick={()=>{ setActiveTab(key); setShowConfig(false); }}>
+              <span style={{ fontSize:"20px", width:"28px", textAlign:"center" }}>{icon}</span>
+              <div style={{flex:1}}>
+                <div style={{ fontWeight:600, color:T.text, fontSize:"14px" }}>{title}</div>
+                <div style={{ fontSize:"12px", color:T.textSub, marginTop:"1px" }}>{sub}</div>
               </div>
+              <Icon name="back" size={14}/>
+            </button>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+
+  // ── Popup de cambio de tono (al tocar el badge) ───────────────────────────
+  const TonoPopup = () => (
+    <div style={{ position:"fixed", inset:0, zIndex:400, display:"flex", alignItems:"flex-start", justifyContent:"flex-end", padding:"56px 12px 0" }}
+      onClick={()=>setShowTonoPopup(false)}>
+      <div style={{ background:T.surface, borderRadius:"16px", padding:"16px", border:`1px solid ${T.border}`, boxShadow:"0 8px 32px #00000066", minWidth:"200px" }}
+        onClick={e=>e.stopPropagation()}>
+        <div style={{ fontWeight:700, fontSize:"14px", color:T.text, marginBottom:"12px", textAlign:"center" }}>
+          Transportar tono
+        </div>
+        {/* Tono actual grande */}
+        <div style={{ textAlign:"center", marginBottom:"12px" }}>
+          <span style={{ fontSize:"36px", fontWeight:800, color:T.accent }}>{currentTono}</span>
+          {semitones!==0 && <div style={{ fontSize:"12px", color:T.textSub }}>({semDisplay} semitonos)</div>}
+        </div>
+        {/* Botones − y + grandes */}
+        <div style={{ display:"flex", alignItems:"center", gap:"8px", marginBottom:"12px" }}>
+          <button
+            style={{ flex:1, padding:"14px", background:T.inputBg, border:`1px solid ${T.border2}`, borderRadius:"12px", cursor:"pointer", fontSize:"24px", fontWeight:700, color:T.text }}
+            onClick={()=>setSemitones(s=>s-1)}>−</button>
+          <div style={{ flex:1, textAlign:"center" }}>
+            <div style={{ fontSize:"22px", fontWeight:800, color:semitones===0?T.textSub:T.accent }}>{semDisplay}</div>
+            <div style={{ fontSize:"10px", color:T.textSub }}>semitonos</div>
+          </div>
+          <button
+            style={{ flex:1, padding:"14px", background:T.inputBg, border:`1px solid ${T.border2}`, borderRadius:"12px", cursor:"pointer", fontSize:"24px", fontWeight:700, color:T.text }}
+            onClick={()=>setSemitones(s=>s+1)}>+</button>
+        </div>
+        {/* Notas de la escala para referencia rápida */}
+        <div style={{ display:"flex", flexWrap:"wrap", gap:"4px", marginBottom:"12px", justifyContent:"center" }}>
+          {NOTAS.map((n,i)=>{
+            const active = currentTono.replace("m","")===n;
+            return (
+              <button key={n} style={{ padding:"4px 8px", borderRadius:"8px", border:"none", cursor:"pointer", fontWeight:700, fontSize:"12px",
+                background:active?T.accent:T.inputBg, color:active?"#fff":T.textSub }}
+                onClick={()=>{ const diff=(i - NOTAS.indexOf(song.tono.replace("m","")));  setSemitones(diff<-6?diff+12:diff>6?diff-12:diff); }}>
+                {n}
+              </button>
             );
           })}
         </div>
-      )}
+        {semitones!==0 && (
+          <button style={{ width:"100%", padding:"10px", background:T.accent+"22", color:T.accent, border:`1px solid ${T.accent}44`, borderRadius:"10px", cursor:"pointer", fontWeight:700 }}
+            onClick={()=>setSemitones(0)}>
+            Restablecer ({song.tono})
+          </button>
+        )}
+      </div>
+    </div>
+  );
 
-      {/* ── ENSAYO ── */}
-      {tab === "ensayo" && (
-        <EnsayoPanel ensayo={song.ensayo} onSave={(ensayo)=>onUpdate({...song,ensayo})}/>
-      )}
-
-      {/* ── FREESHOW ── */}
-      {tab === "freeshow" && (
-        <div>
-          <div style={{ ...Ts.card, marginBottom:"12px" }}>
-            <div style={{ ...Ts.h3, marginBottom:"8px" }}><Icon name="freeshow" size={14}/> Exportar a FreeShow</div>
-            <p style={{ ...Ts.sub, marginBottom:"12px", lineHeight:1.5 }}>
-              Cada sección se convierte en una diapositiva. Tono actual: <strong style={{color:T.accent}}>{currentTono}</strong> ({semDisplay} st)
-            </p>
-            <div style={{ background:T.surface2, borderRadius:"8px", padding:"10px", marginBottom:"12px" }}>
-              {song.secciones.map((sec)=>{
-                const color = S.tipoColor[sec.tipo]||T.accent;
+  // ── Tabs secundarias ──────────────────────────────────────────────────────
+  if (activeTab) {
+    return (
+      <div style={{ background:T.bg, minHeight:"100vh" }}>
+        <div style={{ display:"flex", alignItems:"center", gap:"10px", padding:"12px 16px", borderBottom:`1px solid ${T.border}`, background:T.surface }}>
+          <button style={{ background:"none", border:"none", cursor:"pointer", color:T.text, padding:4 }} onClick={()=>setActiveTab(null)}>
+            <Icon name="back" size={20}/>
+          </button>
+          <span style={{ fontWeight:700, fontSize:"16px", color:T.text }}>
+            {activeTab==="ensayo"?"🎙 Pistas de ensayo":activeTab==="diagramas"?"🎸 Diagramas de acordes":activeTab==="notas"?"📝 Notas":"📺 Exportar a FreeShow"}
+          </span>
+        </div>
+        <div style={{ padding:"16px" }}>
+          {activeTab==="ensayo" && <EnsayoPanel ensayo={song.ensayo} onSave={(ensayo)=>onUpdate({...song,ensayo})}/>}
+          {activeTab==="diagramas" && (
+            <div>
+              <div style={{ background:T.surface, borderRadius:"12px", padding:"14px", border:`1px solid ${T.border}`, marginBottom:"10px" }}>
+                <div style={{ fontSize:"12px", fontWeight:700, color:T.accentSub, marginBottom:"10px", textTransform:"uppercase" }}>Acordes del canto completo</div>
+                <ChordPanel text={allChordText} semitones={semitones} theme={T}/>
+              </div>
+              {song.secciones.map((sec,idx)=>{
+                const color=S.tipoColor[sec.tipo]||T.accent;
                 return (
-                  <div key={sec.id} style={{ display:"flex", alignItems:"center", gap:"8px", padding:"4px 0", borderBottom:`1px solid ${T.border}` }}>
-                    <span style={{ ...Ts.badge(color), minWidth:"80px", textAlign:"center" }}>{sec.tipo} {sec.numero}</span>
-                    <span style={{ ...Ts.sub, fontSize:"11px" }}>{sec.contenido.split("\n").filter(l=>l.trim())[0]?.substring(0,40)}...</span>
+                  <div key={sec.id} style={{ background:T.surface, borderRadius:"10px", marginBottom:"8px", padding:"10px 12px", border:`1px solid ${T.border}`, borderLeft:`3px solid ${color}` }}>
+                    <div style={{ ...Ts.chip(color), marginBottom:"8px", display:"inline-block" }}>{sec.tipo} {sec.numero}</div>
+                    <ChordPanel text={sec.contenido} semitones={semitones} theme={T}/>
                   </div>
                 );
               })}
             </div>
-            <button style={{ ...Ts.btn("primary"), width:"100%", justifyContent:"center" }} onClick={exportFreeShow}>
-              <Icon name="export" size={16}/> Generar JSON FreeShow
-            </button>
-          </div>
-          {showFreeShowExport && (
-            <div style={Ts.card}>
-              <div style={{ ...Ts.between, marginBottom:"8px" }}>
-                <span style={Ts.h3}>JSON generado</span>
-                <button style={Ts.btn("primary",true)} onClick={downloadFreeShow}>
-                  <Icon name="export" size={14}/> Descargar .json
+          )}
+          {activeTab==="notas" && (
+            <div style={{ background:T.surface, borderRadius:"12px", padding:"14px", border:`1px solid ${T.border}` }}>
+              <p style={{ ...Ts.sub, marginBottom:"10px", lineHeight:1.5 }}>Notas privadas del canto: partes difíciles, cambios, instrucciones...</p>
+              <textarea style={{ ...Ts.textarea, minHeight:"220px", fontSize:"15px", lineHeight:1.7 }}
+                placeholder="Ej: En el puente subir al tono A. El baterista entra suave en el Verso 1..."
+                value={notas} onChange={e=>{ setNotas(e.target.value); setNotasSaved(false); }}/>
+              <button style={{ ...Ts.btn("primary"), width:"100%", justifyContent:"center", marginTop:"12px" }} onClick={saveNotas}>
+                <Icon name="save" size={16}/> {notasSaved?"✅ Guardado":"Guardar notas"}
+              </button>
+            </div>
+          )}
+          {activeTab==="freeshow" && (
+            <div>
+              <div style={{ background:T.surface, borderRadius:"12px", padding:"14px", border:`1px solid ${T.border}`, marginBottom:"12px" }}>
+                <p style={{ ...Ts.sub, marginBottom:"12px", lineHeight:1.5 }}>
+                  Tono actual: <strong style={{color:T.accent}}>{currentTono}</strong> ({semDisplay} st)
+                </p>
+                {song.secciones.map(sec=>{
+                  const color=S.tipoColor[sec.tipo]||T.accent;
+                  return (
+                    <div key={sec.id} style={{ display:"flex", alignItems:"center", gap:"8px", padding:"4px 0", borderBottom:`1px solid ${T.border}` }}>
+                      <span style={{ ...Ts.badge(color), minWidth:"80px", textAlign:"center" }}>{sec.tipo} {sec.numero}</span>
+                      <span style={{ ...Ts.sub, fontSize:"11px" }}>{sec.contenido.replace(/\[[^\]]*\]/g,"").split("\n").filter(l=>l.trim())[0]?.substring(0,40)}...</span>
+                    </div>
+                  );
+                })}
+                <button style={{ ...Ts.btn("primary"), width:"100%", justifyContent:"center", marginTop:"12px" }} onClick={exportFreeShow}>
+                  <Icon name="export" size={16}/> Generar JSON FreeShow
                 </button>
               </div>
-              <textarea style={{ ...Ts.textarea, minHeight:"180px", fontSize:"11px" }} value={freeshowJson} readOnly/>
-              <p style={{ ...Ts.sub, marginTop:"6px" }}>Importa en FreeShow: <strong>File → Import → JSON</strong></p>
+              {showFSJson && (
+                <div style={{ background:T.surface, borderRadius:"12px", padding:"14px", border:`1px solid ${T.border}` }}>
+                  <div style={{ display:"flex", justifyContent:"space-between", marginBottom:"8px" }}>
+                    <span style={{ fontWeight:700, color:T.accentSub, fontSize:"13px" }}>JSON generado</span>
+                    <button style={Ts.btn("primary",true)} onClick={downloadFreeShow}><Icon name="export" size={14}/> Descargar</button>
+                  </div>
+                  <textarea style={{ ...Ts.textarea, minHeight:"160px", fontSize:"11px" }} value={freeshowJson} readOnly/>
+                </div>
+              )}
             </div>
           )}
         </div>
+      </div>
+    );
+  }
+
+  // ── Vista principal ───────────────────────────────────────────────────────
+  return (
+    <div style={{ background:T.bg, minHeight:"100vh", display:"flex", flexDirection:"column" }}>
+      {showConfig && <ConfigPanel/>}
+      {showTonoPopup && <TonoPopup/>}
+
+      {/* ── Top bar ── */}
+      <div style={{ display:"flex", alignItems:"center", gap:"8px", padding:"10px 12px", background:T.surface, borderBottom:`1px solid ${T.border}`, position:"sticky", top:0, zIndex:50 }}>
+        <button style={{ background:"none", border:"none", cursor:"pointer", color:T.text, padding:"4px 6px" }} onClick={onBack}>
+          <Icon name="back" size={22}/>
+        </button>
+        <div style={{ flex:1, minWidth:0 }}>
+          {/* Título más grande */}
+          <div style={{ fontWeight:800, fontSize:"22px", color:T.text, overflow:"hidden", textOverflow:"ellipsis", whiteSpace:"nowrap" }}>{song.titulo}</div>
+          <div style={{ fontSize:"13px", color:T.textSub }}>{song.autor}</div>
+        </div>
+        {/* Badge de tono — toca para transponer */}
+        <button
+          style={{ background:T.accent, color:"#fff", borderRadius:"10px", padding:"6px 14px", fontSize:"15px", fontWeight:800, border:"none", cursor:"pointer", boxShadow:`0 2px 8px ${T.accent}66`, flexShrink:0 }}
+          onClick={()=>setShowTonoPopup(v=>!v)}
+          title="Toca para cambiar tono">
+          {currentTono}
+        </button>
+        {/* Config */}
+        <button style={{ background:T.inputBg, border:`1px solid ${T.border}`, borderRadius:"10px", padding:"8px 10px", cursor:"pointer", color:T.textMid }}
+          onClick={()=>setShowConfig(true)}>
+          <Icon name="settings" size={18}/>
+        </button>
+      </div>
+
+      {/* ── Sequence bar ── */}
+      {song.secciones.length > 0 && (
+        <div style={{ background:T.surface, borderBottom:`1px solid ${T.border}`, padding:"8px 12px", overflowX:"auto", whiteSpace:"nowrap" }}>
+          <div style={{ display:"inline-flex", gap:"6px" }}>
+            {song.secciones.map((sec,idx)=>{
+              const color=S.tipoColor[sec.tipo]||T.accent;
+              const abr=(TIPO_ABR[sec.tipo]||sec.tipo[0])+sec.numero;
+              return (
+                <button key={sec.id||idx}
+                  onClick={()=>{ const el=document.getElementById(`sec-${idx}`); if(el)el.scrollIntoView({behavior:"smooth",block:"start"}); }}
+                  style={{ background:color, color:"#fff", border:"none", borderRadius:"50%", width:"36px", height:"36px", cursor:"pointer", fontWeight:800, fontSize:"11px", flexShrink:0, display:"flex", alignItems:"center", justifyContent:"center", boxShadow:`0 2px 6px ${color}66` }}>
+                  {abr}
+                </button>
+              );
+            })}
+          </div>
+        </div>
       )}
+
+      {/* ── Info bar ── */}
+      <div style={{ display:"flex", gap:"8px", padding:"8px 12px", alignItems:"center", flexWrap:"wrap" }}>
+        <span style={{ background:T.surface, border:`1px solid ${T.border}`, borderRadius:"8px", padding:"4px 10px", fontSize:"12px", color:T.textSub }}>
+          ♩ {song.tempo} bpm
+        </span>
+        {semitones!==0 && (
+          <span style={{ background:T.accent+"22", color:T.accent, border:`1px solid ${T.accent}44`, borderRadius:"8px", padding:"4px 10px", fontSize:"12px", fontWeight:700 }}>
+            {semDisplay} st
+          </span>
+        )}
+        {/* toggle acordes/letra inline */}
+        <div style={{ display:"flex", background:T.surface, borderRadius:"8px", border:`1px solid ${T.border}`, overflow:"hidden" }}>
+          {[["acordes","Acordes"],["letra","Letra"]].map(([k,l])=>(
+            <button key={k} style={{ padding:"4px 12px", border:"none", cursor:"pointer", fontSize:"12px", fontWeight:600,
+              background:viewMode===k?T.accent:"transparent", color:viewMode===k?"#fff":T.textSub }}
+              onClick={()=>setViewMode(k)}>{l}</button>
+          ))}
+        </div>
+        <div style={{flex:1}}/>
+        {song.notas && (
+          <button style={{ background:T.surface, border:`1px solid ${T.border}`, borderRadius:"8px", padding:"4px 10px", fontSize:"12px", color:T.textSub, cursor:"pointer" }}
+            onClick={()=>setActiveTab("notas")}>📝 Notas</button>
+        )}
+        {song.categoria.slice(0,1).map(c=>(
+          <span key={c} style={{ background:"#f59e0b22", color:"#f59e0b", border:"1px solid #f59e0b44", borderRadius:"8px", padding:"4px 10px", fontSize:"12px", fontWeight:600 }}>{c}</span>
+        ))}
+      </div>
+
+      {/* ── Secciones ── */}
+      <div style={{ flex:1, padding:"12px" }}>
+        {song.secciones.map((sec,idx)=>{
+          const color=S.tipoColor[sec.tipo]||T.accent;
+          const abr=(TIPO_ABR[sec.tipo]||sec.tipo[0])+sec.numero;
+          return (
+            <div key={sec.id} id={`sec-${idx}`}
+              style={{ marginBottom:"20px", borderRadius:"16px", overflow:"hidden", boxShadow:`0 2px 12px ${color}33` }}>
+              {/* Header de sección — sólido y llamativo */}
+              <div style={{ background:color, padding:"12px 16px", display:"flex", alignItems:"center", gap:"10px" }}>
+                <div style={{ background:"rgba(0,0,0,0.2)", color:"#fff", borderRadius:"50%", width:"34px", height:"34px", display:"flex", alignItems:"center", justifyContent:"center", fontWeight:800, fontSize:"12px", flexShrink:0 }}>
+                  {abr}
+                </div>
+                <span style={{ fontWeight:800, fontSize:"16px", color:"#fff", flex:1 }}>
+                  {sec.tipo.charAt(0)+sec.tipo.slice(1).toLowerCase()} {sec.numero}
+                </span>
+              </div>
+              {/* Contenido */}
+              <div style={{ background:T.surface, padding:"16px 18px", borderLeft:`3px solid ${color}` }}>
+                {renderSection(sec.contenido, viewMode)}
+              </div>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }
+
+  const currentTono = transposeChord(song.tono, semitones);
+  const semDisplay = semitones > 0 ? `+${semitones}` : semitones < 0 ? `${semitones}` : "0";
+  const allChordText = song.secciones.map(s=>s.contenido).join("\n");
+
+  // Abreviatura para la barra de secuencia
+  const TIPO_ABR = { VERSO:"V", CORO:"C", "PRE-CORO":"PC", PUENTE:"P", INTRO:"I", FINAL:"F", OUTRO:"O", INTERLUDIO:"IL", TAG:"T", SOLO:"S" };
+
+  function exportFreeShow() {
+    const data = songToFreeShow(song, semitones);
+    setFreeshowJson(JSON.stringify(data, null, 2));
+    setShowFSJson(true);
+  }
+  function downloadFreeShow() {
+    const blob = new Blob([freeshowJson], {type:"application/json"});
+    const a = document.createElement("a"); a.href = URL.createObjectURL(blob);
+    a.download = `${song.titulo.replace(/\s/g,"_")}.json`; a.click();
+  }
+  function saveNotas() {
+    onUpdate({ ...song, notas });
+    setNotasSaved(true);
+  }
+
+  // ── Panel de configuración (tipo imagen 2) ────────────────────────────────
+  const ConfigPanel = () => (
+    <div style={{ position:"fixed", inset:0, zIndex:300, display:"flex", flexDirection:"column", background:T.bg }}>
+      {/* Header */}
+      <div style={{ display:"flex", alignItems:"center", gap:"12px", padding:"16px 16px 12px", borderBottom:`1px solid ${T.border}` }}>
+        <button style={{ background:"none", border:"none", cursor:"pointer", color:T.text, padding:4 }} onClick={()=>setShowConfig(false)}>
+          <Icon name="close" size={22}/>
+        </button>
+        <span style={{ fontWeight:800, fontSize:"18px", color:T.text }}>Preferencias</span>
+      </div>
+
+      <div style={{ flex:1, overflowY:"auto", padding:"16px" }}>
+        {/* Editar canción */}
+        <div style={{ background:T.surface, borderRadius:"12px", marginBottom:"16px", border:`1px solid ${T.border}` }}>
+          <button style={{ width:"100%", display:"flex", alignItems:"center", gap:"12px", padding:"14px 16px", background:"none", border:"none", cursor:"pointer", color:T.accent }}
+            onClick={()=>{ setShowConfig(false); onEdit(); }}>
+            <Icon name="edit" size={18}/>
+            <span style={{ flex:1, fontWeight:600, fontSize:"15px", textAlign:"left" }}>Editar canción</span>
+            <Icon name="back" size={16}/>
+          </button>
+        </div>
+
+        {/* Tempo + Tamaño fuente */}
+        <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:"10px", marginBottom:"16px" }}>
+          <div>
+            <label style={{ ...Ts.label, marginBottom:"6px" }}>Tempo</label>
+            <div style={{ background:T.surface, borderRadius:"10px", padding:"12px 14px", border:`1px solid ${T.border}`, fontSize:"15px", color:T.textSub }}>
+              ♩= {song.tempo} bpm
+            </div>
+          </div>
+          <div>
+            <label style={{ ...Ts.label, marginBottom:"6px" }}>Tamaño de letra</label>
+            <div style={{ background:T.surface, borderRadius:"10px", border:`1px solid ${T.border}`, display:"flex", alignItems:"center" }}>
+              <button style={{ flex:1, padding:"12px", background:"none", border:"none", cursor:"pointer", color:T.textSub, fontSize:"16px" }}
+                onClick={()=>setFontSize(f=>Math.max(12,f-1))}>A−</button>
+              <span style={{ color:T.text, fontWeight:700, fontSize:"15px" }}>{fontSize}px</span>
+              <button style={{ flex:1, padding:"12px", background:"none", border:"none", cursor:"pointer", color:T.textSub, fontSize:"16px" }}
+                onClick={()=>setFontSize(f=>Math.min(28,f+1))}>A+</button>
+            </div>
+          </div>
+        </div>
+
+        {/* Vista de canción */}
+        <label style={{ ...Ts.label, marginBottom:"8px" }}>Vista de canción</label>
+        <div style={{ display:"flex", background:T.surface, borderRadius:"10px", border:`1px solid ${T.border}`, overflow:"hidden", marginBottom:"16px" }}>
+          {[["acordes","Acordes"],["letra","Solo letra"]].map(([k,l])=>(
+            <button key={k} style={{ flex:1, padding:"12px", border:"none", cursor:"pointer", fontWeight:600, fontSize:"14px", transition:"all 0.15s",
+              background:viewMode===k?T.accent:"transparent", color:viewMode===k?"#fff":T.textMid }}
+              onClick={()=>setViewMode(k)}>{l}</button>
+          ))}
+        </div>
+
+        {/* Transportar */}
+        <label style={{ ...Ts.label, marginBottom:"8px" }}>Transportar — Tono actual: <strong style={{color:T.accent}}>{currentTono}</strong></label>
+        <div style={{ display:"flex", alignItems:"center", gap:"8px", background:T.surface, borderRadius:"10px", padding:"10px 14px", border:`1px solid ${T.border}`, marginBottom:"16px" }}>
+          <button style={{ background:T.inputBg, border:`1px solid ${T.border2}`, color:T.text, borderRadius:"8px", padding:"8px 16px", cursor:"pointer", fontSize:"18px", fontWeight:700 }}
+            onClick={()=>setSemitones(s=>s-1)}>−</button>
+          <span style={{ flex:1, textAlign:"center", fontWeight:800, fontSize:"20px", color:semitones===0?T.textSub:T.accent }}>{semDisplay}</span>
+          <button style={{ background:T.inputBg, border:`1px solid ${T.border2}`, color:T.text, borderRadius:"8px", padding:"8px 16px", cursor:"pointer", fontSize:"18px", fontWeight:700 }}
+            onClick={()=>setSemitones(s=>s+1)}>+</button>
+          {semitones!==0 && (
+            <button style={{ background:T.accent+"22", color:T.accent, border:`1px solid ${T.accent}44`, borderRadius:"8px", padding:"8px 12px", cursor:"pointer", fontSize:"13px", fontWeight:700 }}
+              onClick={()=>setSemitones(0)}>Reset</button>
+          )}
+        </div>
+
+        {/* Sección: Herramientas */}
+        <label style={{ ...Ts.label, marginBottom:"8px" }}>Herramientas</label>
+        <div style={{ background:T.surface, borderRadius:"12px", border:`1px solid ${T.border}`, overflow:"hidden", marginBottom:"16px" }}>
+          {[
+            ["ensayo",    "🎙",  "Pistas de ensayo",      "Mezclas aumentada/disminuida por instrumento"],
+            ["diagramas", "🎸",  "Diagramas de acordes",  "Guitarra y piano"],
+            ["notas",     "📝",  "Notas del canto",       song.notas ? "Con notas guardadas" : "Sin notas aún"],
+            ["freeshow",  "📺",  "Exportar a FreeShow",   "Genera JSON para presentación"],
+          ].map(([key, icon, title, sub], i, arr)=>(
+            <button key={key}
+              style={{ width:"100%", display:"flex", alignItems:"center", gap:"12px", padding:"14px 16px", background:"none", border:"none", borderBottom:i<arr.length-1?`1px solid ${T.border}`:"none", cursor:"pointer", textAlign:"left" }}
+              onClick={()=>{ setActiveTab(key); setShowConfig(false); }}>
+              <span style={{ fontSize:"20px", width:"28px", textAlign:"center" }}>{icon}</span>
+              <div style={{flex:1}}>
+                <div style={{ fontWeight:600, color:T.text, fontSize:"14px" }}>{title}</div>
+                <div style={{ fontSize:"12px", color:T.textSub, marginTop:"1px" }}>{sub}</div>
+              </div>
+              <Icon name="back" size={14}/>
+            </button>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
 
 // ─── SONG EDITOR ──────────────────────────────────────────────────────────────
 function SongEditor({ song, onSave, onCancel }) {
@@ -1734,102 +2060,149 @@ function SetlistView({ setlist, songs, onBack, onEdit, onSelectSong, theme }) {
 }
 
 // ─── HOME ─────────────────────────────────────────────────────────────────────
-function HomePanel({ songs, setlists, onGoSongs, onGoSetlists, onSelectSong, onSelectSetlist, theme }) {
+function HomePanel({ songs, setlists, onGoSongs, onGoSetlists, onGoCalendar, onSelectSong, onSelectSetlist, theme }) {
   const T = theme || THEMES.dark;
   const Ts = makeStyles(T);
-  const recent = [...songs].sort((a,b)=>b.createdAt-a.createdAt).slice(0,4);
   const todayStr = new Date().toISOString().slice(0,10);
-  const nextSetlist = [...setlists]
-    .filter(s=>s.fecha >= todayStr)
-    .sort((a,b)=>a.fecha>b.fecha?1:-1)[0];
-  const upcomingSetlists = [...setlists]
-    .filter(s=>s.fecha >= todayStr)
-    .sort((a,b)=>a.fecha>b.fecha?1:-1)
-    .slice(0,3);
+  const now = new Date();
+  const dayNames = ["dom","lun","mar","mié","jue","vie","sáb"];
+  const upcoming = [...setlists].filter(s=>s.fecha>=todayStr).sort((a,b)=>a.fecha>b.fecha?1:-1);
+  const nextSetlist = upcoming[0];
+  const recent = [...songs].sort((a,b)=>b.createdAt-a.createdAt).slice(0,3);
+
+  // Días visibles en la mini-calendar strip (hoy y 2 siguientes)
+  const dayStrip = [0,1,2].map(i=>{
+    const d = new Date(now); d.setDate(d.getDate()+i);
+    return { label:dayNames[d.getDay()], num:d.getDate(), isToday:i===0 };
+  });
 
   return (
     <div>
-      {/* Hero */}
-      <div style={{ background:`linear-gradient(135deg,${T.accent}44,${T.accent}22)`, borderRadius:"16px", padding:"20px", marginBottom:"14px", position:"relative", overflow:"hidden", border:`1px solid ${T.accent}44` }}>
-        <div style={{ position:"absolute", top:"-10px", right:"-10px", fontSize:"80px", opacity:0.08, pointerEvents:"none" }}>🎵</div>
-        <h1 style={{ ...Ts.h1, fontSize:"24px", marginBottom:"2px" }}>Alabanza PWA</h1>
-        <p style={{ color:T.accentSub, fontSize:"13px", margin:"0 0 14px" }}>Panel del equipo de adoración</p>
-        <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr 1fr", gap:"6px" }}>
-          <button style={{ ...Ts.btn("primary"), justifyContent:"center", fontSize:"12px", padding:"8px 6px" }} onClick={onGoSongs}>
-            <Icon name="songs" size={14}/> {songs.length} canciones
-          </button>
-          <button style={{ ...Ts.btn("secondary"), justifyContent:"center", fontSize:"12px", padding:"8px 6px" }} onClick={onGoSetlists}>
-            <Icon name="setlist" size={14}/> {setlists.length} setlists
-          </button>
-          <button style={{ ...Ts.btn("secondary"), justifyContent:"center", fontSize:"12px", padding:"8px 6px" }} onClick={()=>{}}>
-            <Icon name="calendar" size={14}/> Calendario
-          </button>
+      {/* ── Encabezado tipo OnStage ── */}
+      <div style={{ marginBottom:"16px" }}>
+        <h1 style={{ ...Ts.h1, fontSize:"26px", marginBottom:"2px" }}>Inicio</h1>
+      </div>
+
+      {/* ── Fila top: Equipo + Calendario ── */}
+      <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:"10px", marginBottom:"10px" }}>
+        {/* Equipo / Nombre app */}
+        <div style={{ background:T.surface, borderRadius:"14px", padding:"14px", border:`1px solid ${T.border}`, minHeight:"110px" }}>
+          <div style={{ fontSize:"11px", color:T.textSub, fontWeight:700, marginBottom:"6px", textTransform:"uppercase", letterSpacing:"0.5px" }}>
+            Equipo actual
+          </div>
+          <div style={{ fontWeight:800, fontSize:"18px", color:T.text, lineHeight:1.2, marginBottom:"4px" }}>Dunamis Adoración</div>
+          <div style={{ fontSize:"12px", color:T.textSub }}>{songs.length} canciones</div>
+        </div>
+
+        {/* Mini calendario con próximas fechas */}
+        <div style={{ display:"flex", flexDirection:"column", gap:"10px" }}>
+          {/* Strip de 3 días */}
+          <div style={{ background:T.surface, borderRadius:"14px", padding:"12px 14px", border:`1px solid ${T.border}` }}>
+            <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center" }}>
+              {dayStrip.map((d,i)=>(
+                <div key={i} style={{ textAlign:"center", flex:1 }}>
+                  <div style={{ fontSize:"11px", color:T.textSub, marginBottom:"2px" }}>{d.label}</div>
+                  <div style={{ fontWeight: d.isToday?800:600, fontSize: d.isToday?"22px":"16px", color: d.isToday?T.accent:T.textMid }}>
+                    {d.num}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Favoritos / Songs rápido */}
+          <div style={{ background:T.surface, borderRadius:"14px", padding:"12px 14px", border:`1px solid ${T.border}`, display:"flex", alignItems:"center", cursor:"pointer" }}
+            onClick={onGoSongs}>
+            <div style={{ flex:1 }}>
+              <div style={{ display:"flex", alignItems:"center", gap:"6px", marginBottom:"4px" }}>
+                <span style={{ color:"#ef4444", fontSize:"16px" }}>♥</span>
+                <span style={{ fontWeight:700, fontSize:"14px", color:T.text }}>Canciones</span>
+              </div>
+              <div style={{ fontWeight:800, fontSize:"24px", color:T.text }}>{songs.length}</div>
+            </div>
+            <div style={{ background:T.inputBg, borderRadius:"10px", width:"32px", height:"32px", display:"flex", alignItems:"center", justifyContent:"center", color:T.textSub }}>
+              ›
+            </div>
+          </div>
         </div>
       </div>
 
-      {/* Próximos servicios */}
-      {upcomingSetlists.length > 0 && (
-        <div style={{ ...Ts.card, marginBottom:"12px" }}>
-          <div style={{ ...Ts.between, marginBottom:"10px" }}>
-            <span style={{ ...Ts.h3, margin:0 }}>📅 Próximos servicios</span>
-          </div>
-          {upcomingSetlists.map((sl,i)=>(
-            <div key={sl.id}
-              style={{ display:"flex", alignItems:"center", gap:"10px", padding:"8px", borderRadius:"8px", cursor:"pointer", background: i===0?T.accent+"18":T.surface2, marginBottom:"6px", border:`1px solid ${i===0?T.accent+"44":T.border}` }}
-              onClick={()=>onSelectSetlist(sl)}>
-              <div style={{ background:T.accent+"33", borderRadius:"8px", width:"38px", height:"38px", display:"flex", alignItems:"center", justifyContent:"center", flexShrink:0 }}>
-                <span style={{ fontWeight:800, fontSize:"13px", color:T.accent }}>{sl.fecha?.slice(8)}</span>
-              </div>
-              <div style={{flex:1}}>
-                <div style={{ fontWeight:700, fontSize:"14px", color:T.text }}>{sl.nombre}</div>
-                <div style={{ fontSize:"11px", color:T.textSub }}>{sl.tipo} · {sl.cantos.length} cantos{(sl.roles||[]).length>0?` · ${sl.roles.length} músicos`:""}</div>
-              </div>
-              {i===0 && <span style={{ fontSize:"10px", background:T.accent+"33", color:T.accent, borderRadius:"6px", padding:"2px 8px", fontWeight:700 }}>Próximo</span>}
-            </div>
-          ))}
+      {/* ── Próximos servicios ── */}
+      <div style={{ marginBottom:"6px" }}>
+        <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:"10px" }}>
+          <span style={{ fontWeight:700, fontSize:"16px", color:T.text }}>Próximos</span>
+          <button style={{ background:"none", border:"none", color:T.accent, fontSize:"13px", cursor:"pointer", fontWeight:600 }}
+            onClick={onGoCalendar}>Ver calendario →</button>
         </div>
-      )}
 
-      {/* Canciones recientes */}
-      {recent.length > 0 && (
-        <div style={Ts.card}>
-          <div style={{ ...Ts.between, marginBottom:"10px" }}>
-            <span style={{ ...Ts.h3, margin:0 }}>🎶 Canciones recientes</span>
-            <button style={Ts.btn("ghost",true)} onClick={onGoSongs} title="Ver todas">Ver todas →</button>
+        {upcoming.length === 0 ? (
+          <div style={{ background:T.surface, borderRadius:"14px", padding:"32px 16px", border:`1px solid ${T.border}`, textAlign:"center" }}>
+            <div style={{ fontSize:"36px", marginBottom:"8px" }}>📅</div>
+            <div style={{ fontWeight:700, color:T.textMid, marginBottom:"4px" }}>Nada planificado todavía</div>
+            <div style={{ fontSize:"12px", color:T.textSub }}>No hay setlists con fecha asignada aún</div>
+            <button style={{ ...Ts.btn("primary"), marginTop:"14px", justifyContent:"center" }} onClick={onGoSetlists}>
+              <Icon name="plus" size={14}/> Crear setlist
+            </button>
           </div>
-          {recent.map(s=>(
+        ) : (
+          upcoming.slice(0,4).map((sl,i)=>{
+            const [yyyy,mm,dd] = sl.fecha.split("-");
+            const slDate = new Date(sl.fecha+"T00:00:00");
+            const dayName = dayNames[slDate.getDay()];
+            const isNext = i===0;
+            return (
+              <div key={sl.id}
+                style={{ background:T.surface, borderRadius:"14px", padding:"14px 16px", marginBottom:"8px", border:`1px solid ${isNext?T.accent+"66":T.border}`, cursor:"pointer", display:"flex", alignItems:"center", gap:"12px", transition:"border-color 0.15s" }}
+                onClick={()=>onSelectSetlist(sl)}>
+                {/* Fecha badge */}
+                <div style={{ background:isNext?T.accent:T.inputBg, borderRadius:"10px", width:"44px", height:"44px", display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center", flexShrink:0 }}>
+                  <span style={{ fontSize:"10px", color:isNext?"#fff":T.textSub, fontWeight:600, textTransform:"uppercase" }}>{dayName}</span>
+                  <span style={{ fontSize:"18px", fontWeight:800, color:isNext?"#fff":T.text, lineHeight:1 }}>{dd}</span>
+                </div>
+                <div style={{flex:1}}>
+                  <div style={{ fontWeight:700, fontSize:"15px", color:T.text, marginBottom:"2px" }}>{sl.nombre}</div>
+                  <div style={{ fontSize:"12px", color:T.textSub }}>{sl.tipo} · {sl.cantos.length} cantos{(sl.roles||[]).length>0?` · ${sl.roles.length} músicos`:""}</div>
+                </div>
+                {isNext && (
+                  <span style={{ fontSize:"11px", background:T.accent+"22", color:T.accent, borderRadius:"8px", padding:"3px 8px", fontWeight:700 }}>Próximo</span>
+                )}
+              </div>
+            );
+          })
+        )}
+      </div>
+
+      {/* ── Canciones recientes ── */}
+      {recent.length > 0 && (
+        <div style={{ background:T.surface, borderRadius:"14px", border:`1px solid ${T.border}`, overflow:"hidden", marginTop:"8px" }}>
+          <div style={{ padding:"12px 14px", borderBottom:`1px solid ${T.border}`, display:"flex", justifyContent:"space-between", alignItems:"center" }}>
+            <span style={{ fontWeight:700, fontSize:"14px", color:T.text }}>Añadidas recientemente</span>
+            <button style={{ background:"none", border:"none", color:T.accent, fontSize:"12px", cursor:"pointer", fontWeight:600 }} onClick={onGoSongs}>Ver todas →</button>
+          </div>
+          {recent.map((s,i)=>(
             <div key={s.id}
-              style={{ padding:"8px", cursor:"pointer", borderBottom:`1px solid ${T.border}`, display:"flex", alignItems:"center", gap:"10px" }}
+              style={{ padding:"12px 14px", borderBottom: i<recent.length-1?`1px solid ${T.border}`:"none", display:"flex", alignItems:"center", gap:"12px", cursor:"pointer" }}
               onClick={()=>onSelectSong(s)}>
-              <div style={{ background:T.accent+"22", borderRadius:"8px", width:"36px", height:"36px", display:"flex", alignItems:"center", justifyContent:"center", fontSize:"16px", flexShrink:0 }}>🎶</div>
+              <div style={{ background:T.accent+"22", borderRadius:"8px", width:"36px", height:"36px", display:"flex", alignItems:"center", justifyContent:"center", fontSize:"16px", flexShrink:0 }}>🎵</div>
               <div style={{flex:1}}>
                 <div style={{ fontWeight:600, fontSize:"14px", color:T.text }}>{s.titulo}</div>
-                <div style={{ fontSize:"11px", color:T.textSub }}>{s.autor} · {s.tono} · ♩{s.tempo}</div>
+                <div style={{ fontSize:"11px", color:T.textSub }}>{s.autor} · {s.tono}</div>
               </div>
-              <div style={{ display:"flex", gap:"4px" }}>
-                {s.categoria.slice(0,1).map(c=><span key={c} style={Ts.chip("#f59e0b")}>{c}</span>)}
-              </div>
+              <span style={{ fontSize:"11px", color:T.textSub }}>♩{s.tempo}</span>
             </div>
           ))}
         </div>
       )}
-
-      {/* FreeShow info */}
-      <div style={{ ...Ts.card, borderLeft:`3px solid ${T.accentSub}` }}>
-        <div style={{ ...Ts.h3, color:T.accentSub }}><Icon name="info" size={14}/> Integración FreeShow</div>
-        <p style={{ ...Ts.sub, lineHeight:1.5, margin:0 }}>
-          Exporta canciones o setlists completos a FreeShow en JSON. Cada sección → diapositiva con grupo y color. Activa <strong>Diagramas 🎵</strong> para ver acordes de guitarra y piano.
-        </p>
-      </div>
     </div>
   );
 }
 
+
 // ─── SUPABASE CONFIG ──────────────────────────────────────────────────────────
 // ⚠️  Reemplaza estos valores con los de tu proyecto Supabase
 // Supabase → Settings → API → Project URL y anon public key
-const SUPABASE_URL  = "https://dbdphthfpywvsmuzkqga.supabase.co";
-const SUPABASE_KEY  = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRiZHBodGhmcHl3dnNtdXprcWdhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI0NDgyNzcsImV4cCI6MjA5ODAyNDI3N30.zTfDmopZKqU9ToFh6nELWH0zoEbeEdDfBaY1vQ8qXnQ";
+const SUPABASE_URL  = "https://TU-PROYECTO.supabase.co";
+const SUPABASE_KEY  = "tu-anon-key-aqui";
 
 // Cliente Supabase mínimo sin dependencia npm (fetch directo)
 // Para producción instala @supabase/supabase-js y usa el cliente oficial
@@ -2384,6 +2757,7 @@ export default function App() {
                 songs={songs} setlists={setlists}
                 onGoSongs={()=>setNav("songs")}
                 onGoSetlists={()=>setNav("setlists")}
+                onGoCalendar={()=>setNav("calendario")}
                 onSelectSong={s=>setView({type:"viewSong", data:s})}
                 onSelectSetlist={sl=>setView({type:"viewSetlist", data:sl})}
                 theme={T}
