@@ -1,6 +1,32 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 
-// ─── DEMO DATA ────────────────────────────────────────────────────────────────
+// ─── SWIPE HOOK ───────────────────────────────────────────────────────────────
+// Detecta swipe izquierda/derecha en cualquier elemento
+function useSwipe(onSwipeLeft, onSwipeRight, minDist = 60) {
+  const touchStart = useRef(null);
+  const touchEnd   = useRef(null);
+
+  const onTouchStart = useCallback((e) => {
+    touchStart.current = e.targetTouches[0].clientX;
+    touchEnd.current   = null;
+  }, []);
+
+  const onTouchMove = useCallback((e) => {
+    touchEnd.current = e.targetTouches[0].clientX;
+  }, []);
+
+  const onTouchEnd = useCallback(() => {
+    if (!touchStart.current || !touchEnd.current) return;
+    const dist = touchStart.current - touchEnd.current;
+    if (Math.abs(dist) < minDist) return;
+    if (dist > 0) onSwipeLeft?.();   // deslizó a la izquierda → siguiente
+    else          onSwipeRight?.();  // deslizó a la derecha  → anterior
+  }, [onSwipeLeft, onSwipeRight, minDist]);
+
+  return { onTouchStart, onTouchMove, onTouchEnd };
+}
+
+
 const DEMO_SONGS = [
   {
     id: "1",
@@ -1020,7 +1046,7 @@ function EnsayoPanel({ ensayo, onSave }) {
 }
 
 // ─── SONG VIEW ────────────────────────────────────────────────────────────────
-function SongView({ song, allSongs, onBack, onEdit, onUpdate, theme }) {
+function SongView({ song, allSongs, onBack, onEdit, onUpdate, onPrev, onNext, posLabel, setlistName, theme }) {
   const T = theme || THEMES.dark;
   const Ts = makeStyles(T);
 
@@ -1028,17 +1054,45 @@ function SongView({ song, allSongs, onBack, onEdit, onUpdate, theme }) {
   const [semitones, setSemitones] = useState(0);
   const [fontSize, setFontSize]   = useState(18);
   const [showConfig, setShowConfig] = useState(false);
-  const [showTonoPopup, setShowTonoPopup] = useState(false); // ← nuevo: popup de tono
+  const [showTonoPopup, setShowTonoPopup] = useState(false);
   const [activeTab, setActiveTab]   = useState(null);
   const [freeshowJson, setFreeshowJson] = useState("");
   const [showFSJson, setShowFSJson]   = useState(false);
   const [notas, setNotas]     = useState(song.notas || "");
   const [notasSaved, setNotasSaved] = useState(true);
+  // Feedback visual de swipe
+  const [swipeHint, setSwipeHint] = useState(null); // "prev" | "next" | null
+  const containerRef = useRef(null);
 
   const currentTono = transposeChord(song.tono, semitones);
   const semDisplay  = semitones > 0 ? `+${semitones}` : semitones < 0 ? `${semitones}` : "0";
   const allChordText = song.secciones.map(s=>s.contenido).join("\n");
   const TIPO_ABR = { VERSO:"V", CORO:"C", "PRE-CORO":"PC", PUENTE:"P", INTRO:"I", FINAL:"F", OUTRO:"O", INTERLUDIO:"IL", TAG:"T", SOLO:"S" };
+
+  // Reset estado al cambiar de canción
+  useEffect(() => {
+    setSemitones(0);
+    setNotas(song.notas || "");
+    setNotasSaved(true);
+    setActiveTab(null);
+    setShowConfig(false);
+    setShowTonoPopup(false);
+    // Scroll al tope
+    window.scrollTo(0, 0);
+  }, [song.id]);
+
+  // ── Swipe handlers ────────────────────────────────────────────────────────
+  function handleSwipeLeft() {
+    if (!onNext) return;
+    setSwipeHint("next");
+    setTimeout(() => { setSwipeHint(null); onNext(); }, 220);
+  }
+  function handleSwipeRight() {
+    if (!onPrev) return;
+    setSwipeHint("prev");
+    setTimeout(() => { setSwipeHint(null); onPrev(); }, 220);
+  }
+  const swipeHandlers = useSwipe(handleSwipeLeft, handleSwipeRight);
 
   function exportFreeShow() {
     const data = songToFreeShow(song, semitones);
@@ -1333,9 +1387,57 @@ function SongView({ song, allSongs, onBack, onEdit, onUpdate, theme }) {
 
   // ── Vista principal ───────────────────────────────────────────────────────
   return (
-    <div style={{ background:T.bg, minHeight:"100vh", display:"flex", flexDirection:"column" }}>
+    <div
+      ref={containerRef}
+      style={{ background:T.bg, minHeight:"100vh", display:"flex", flexDirection:"column", position:"relative", overflow:"hidden" }}
+      {...swipeHandlers}
+    >
       {showConfig && <ConfigPanel/>}
       {showTonoPopup && <TonoPopup/>}
+
+      {/* ── Swipe hint overlay ── */}
+      {swipeHint === "next" && (
+        <div style={{ position:"fixed", inset:0, zIndex:500, display:"flex", alignItems:"center", justifyContent:"flex-end", pointerEvents:"none" }}>
+          <div style={{ background:T.accent, color:"#fff", borderRadius:"16px 0 0 16px", padding:"20px 16px", fontSize:"28px", boxShadow:`-4px 0 20px ${T.accent}88` }}>
+            ›
+          </div>
+        </div>
+      )}
+      {swipeHint === "prev" && (
+        <div style={{ position:"fixed", inset:0, zIndex:500, display:"flex", alignItems:"center", justifyContent:"flex-start", pointerEvents:"none" }}>
+          <div style={{ background:T.accent, color:"#fff", borderRadius:"0 16px 16px 0", padding:"20px 16px", fontSize:"28px", boxShadow:`4px 0 20px ${T.accent}88` }}>
+            ‹
+          </div>
+        </div>
+      )}
+
+      {/* ── Barra de contexto del setlist ── */}
+      {setlistName && (
+        <div style={{ background:T.accent+"18", borderBottom:`1px solid ${T.accent}33`, padding:"6px 12px", display:"flex", alignItems:"center", gap:"8px" }}>
+          <span style={{ fontSize:"11px", color:T.accent, fontWeight:700, textTransform:"uppercase", letterSpacing:"0.5px" }}>
+            📋 {setlistName}
+          </span>
+          {posLabel && (
+            <span style={{ background:T.accent+"22", color:T.accent, borderRadius:"20px", padding:"1px 8px", fontSize:"11px", fontWeight:700 }}>
+              {posLabel}
+            </span>
+          )}
+          <div style={{flex:1}}/>
+          {/* Botones prev/next en la barra de setlist */}
+          <button
+            disabled={!onPrev}
+            onClick={onPrev}
+            style={{ background:onPrev?T.accent+"22":"transparent", color:onPrev?T.accent:T.border2, border:`1px solid ${onPrev?T.accent+"44":T.border}`, borderRadius:"8px", padding:"3px 10px", cursor:onPrev?"pointer":"default", fontSize:"14px", fontWeight:700 }}>
+            ‹ Ant.
+          </button>
+          <button
+            disabled={!onNext}
+            onClick={onNext}
+            style={{ background:onNext?T.accent+"22":"transparent", color:onNext?T.accent:T.border2, border:`1px solid ${onNext?T.accent+"44":T.border}`, borderRadius:"8px", padding:"3px 10px", cursor:onNext?"pointer":"default", fontSize:"14px", fontWeight:700 }}>
+            Sig. ›
+          </button>
+        </div>
+      )}
 
       {/* ── Top bar ── */}
       <div style={{ display:"flex", alignItems:"center", gap:"8px", padding:"10px 12px", background:T.surface, borderBottom:`1px solid ${T.border}`, position:"sticky", top:0, zIndex:50 }}>
@@ -1343,18 +1445,14 @@ function SongView({ song, allSongs, onBack, onEdit, onUpdate, theme }) {
           <Icon name="back" size={22}/>
         </button>
         <div style={{ flex:1, minWidth:0 }}>
-          {/* Título más grande */}
           <div style={{ fontWeight:800, fontSize:"22px", color:T.text, overflow:"hidden", textOverflow:"ellipsis", whiteSpace:"nowrap" }}>{song.titulo}</div>
           <div style={{ fontSize:"13px", color:T.textSub }}>{song.autor}</div>
         </div>
-        {/* Badge de tono — toca para transponer */}
         <button
           style={{ background:T.accent, color:"#fff", borderRadius:"10px", padding:"6px 14px", fontSize:"15px", fontWeight:800, border:"none", cursor:"pointer", boxShadow:`0 2px 8px ${T.accent}66`, flexShrink:0 }}
-          onClick={()=>setShowTonoPopup(v=>!v)}
-          title="Toca para cambiar tono">
+          onClick={()=>setShowTonoPopup(v=>!v)}>
           {currentTono}
         </button>
-        {/* Config */}
         <button style={{ background:T.inputBg, border:`1px solid ${T.border}`, borderRadius:"10px", padding:"8px 10px", cursor:"pointer", color:T.textMid }}
           onClick={()=>setShowConfig(true)}>
           <Icon name="settings" size={18}/>
@@ -1390,7 +1488,6 @@ function SongView({ song, allSongs, onBack, onEdit, onUpdate, theme }) {
             {semDisplay} st
           </span>
         )}
-        {/* toggle acordes/letra inline */}
         <div style={{ display:"flex", background:T.surface, borderRadius:"8px", border:`1px solid ${T.border}`, overflow:"hidden" }}>
           {[["acordes","Acordes"],["letra","Letra"]].map(([k,l])=>(
             <button key={k} style={{ padding:"4px 12px", border:"none", cursor:"pointer", fontSize:"12px", fontWeight:600,
@@ -1416,7 +1513,6 @@ function SongView({ song, allSongs, onBack, onEdit, onUpdate, theme }) {
           return (
             <div key={sec.id} id={`sec-${idx}`}
               style={{ marginBottom:"20px", borderRadius:"16px", overflow:"hidden", boxShadow:`0 2px 12px ${color}33` }}>
-              {/* Header de sección — sólido y llamativo */}
               <div style={{ background:color, padding:"12px 16px", display:"flex", alignItems:"center", gap:"10px" }}>
                 <div style={{ background:"rgba(0,0,0,0.2)", color:"#fff", borderRadius:"50%", width:"34px", height:"34px", display:"flex", alignItems:"center", justifyContent:"center", fontWeight:800, fontSize:"12px", flexShrink:0 }}>
                   {abr}
@@ -1425,13 +1521,39 @@ function SongView({ song, allSongs, onBack, onEdit, onUpdate, theme }) {
                   {sec.tipo.charAt(0)+sec.tipo.slice(1).toLowerCase()} {sec.numero}
                 </span>
               </div>
-              {/* Contenido */}
               <div style={{ background:T.surface, padding:"16px 18px", borderLeft:`3px solid ${color}` }}>
                 {renderSection(sec.contenido, viewMode)}
               </div>
             </div>
           );
         })}
+
+        {/* ── Navegación prev/next abajo de las secciones ── */}
+        {(onPrev || onNext) && (
+          <div style={{ display:"flex", gap:"10px", marginTop:"8px", marginBottom:"24px" }}>
+            <button
+              disabled={!onPrev}
+              onClick={onPrev}
+              style={{ flex:1, padding:"14px", background:onPrev?T.surface:"transparent", border:`1px solid ${onPrev?T.border:T.border+"44"}`, borderRadius:"12px", cursor:onPrev?"pointer":"default", color:onPrev?T.text:T.border, fontWeight:700, fontSize:"14px", display:"flex", alignItems:"center", justifyContent:"center", gap:"8px" }}>
+              ← Anterior
+            </button>
+            <button
+              disabled={!onNext}
+              onClick={onNext}
+              style={{ flex:1, padding:"14px", background:onNext?T.accent:T.surface, border:`1px solid ${onNext?T.accent:T.border}`, borderRadius:"12px", cursor:onNext?"pointer":"default", color:onNext?"#fff":T.border, fontWeight:700, fontSize:"14px", display:"flex", alignItems:"center", justifyContent:"center", gap:"8px" }}>
+              Siguiente →
+            </button>
+          </div>
+        )}
+
+        {/* Hint de swipe — solo aparece la primera vez */}
+        {(onPrev || onNext) && (
+          <div style={{ textAlign:"center", padding:"8px", marginBottom:"12px" }}>
+            <span style={{ fontSize:"11px", color:T.textSub, opacity:0.7 }}>
+              ← Desliza para cambiar de canción →
+            </span>
+          </div>
+        )}
       </div>
     </div>
   );
@@ -2551,12 +2673,46 @@ export default function App() {
       {/* ── Views (pantallas de detalle) ── */}
       {view ? (
         <div style={{ flex:1, padding:"16px", maxWidth:"768px", margin:"0 auto", width:"100%", boxSizing:"border-box" }}>
-          {view.type === "viewSong" && (
-            <SongView song={view.data} allSongs={songs}
-              onBack={()=>setView(null)}
-              onEdit={()=>setView({type:"editSong", data:view.data})}
-              onUpdate={updateSong} {...tp}/>
-          )}
+          {view.type === "viewSong" && (() => {
+            // Calcular canción anterior/siguiente si venimos de un setlist
+            const ctx = view.setlistCtx;
+            let onPrev = null, onNext = null, posLabel = null;
+            if (ctx) {
+              const cantos = ctx.setlist.cantos;
+              const idx = cantos.findIndex(c => c.cantoId === ctx.currentId);
+              if (idx > 0) {
+                const prevSong = songs.find(s => s.id === cantos[idx-1].cantoId);
+                if (prevSong) onPrev = () => setView({
+                  type:"viewSong", data:prevSong,
+                  setlistCtx:{ setlist:ctx.setlist, currentId:prevSong.id }
+                });
+              }
+              if (idx < cantos.length - 1) {
+                const nextSong = songs.find(s => s.id === cantos[idx+1].cantoId);
+                if (nextSong) onNext = () => setView({
+                  type:"viewSong", data:nextSong,
+                  setlistCtx:{ setlist:ctx.setlist, currentId:nextSong.id }
+                });
+              }
+              posLabel = `${idx + 1} / ${cantos.length}`;
+            }
+            return (
+              <SongView
+                song={view.data} allSongs={songs}
+                onBack={()=>setView(
+                  ctx
+                    ? {type:"viewSetlist", data:ctx.setlist}
+                    : null
+                )}
+                onEdit={()=>setView({type:"editSong", data:view.data})}
+                onUpdate={updateSong}
+                onPrev={onPrev}
+                onNext={onNext}
+                posLabel={posLabel}
+                setlistName={ctx?.setlist?.nombre}
+                {...tp}/>
+            );
+          })()}
           {view.type === "newSong" && (
             <SongEditor onSave={doUpsertSong} onCancel={()=>setView(null)} {...tp}/>
           )}
@@ -2567,7 +2723,14 @@ export default function App() {
             <SetlistView setlist={view.data} songs={songs}
               onBack={()=>setView(null)}
               onEdit={()=>setView({type:"editSetlist", data:view.data})}
-              onSelectSong={s=>setView({type:"viewSong", data:s})} {...tp}/>
+              onSelectSong={s=>setView({
+                type:"viewSong",
+                data: s,
+                setlistCtx: {          // ← contexto del setlist para swipe
+                  setlist: view.data,
+                  currentId: s.id,
+                }
+              })} {...tp}/>
           )}
           {view.type === "newSetlist" && (
             <SetlistEditor songs={songs} onSave={doUpsertSetlist} onCancel={()=>setView(null)} {...tp}/>
