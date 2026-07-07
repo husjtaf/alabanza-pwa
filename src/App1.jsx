@@ -1437,6 +1437,119 @@ function SongView({ song, allSongs, onBack, onEdit, onUpdate, theme }) {
   );
 }
 
+  const currentTono = transposeChord(song.tono, semitones);
+  const semDisplay = semitones > 0 ? `+${semitones}` : semitones < 0 ? `${semitones}` : "0";
+  const allChordText = song.secciones.map(s=>s.contenido).join("\n");
+
+  // Abreviatura para la barra de secuencia
+  const TIPO_ABR = { VERSO:"V", CORO:"C", "PRE-CORO":"PC", PUENTE:"P", INTRO:"I", FINAL:"F", OUTRO:"O", INTERLUDIO:"IL", TAG:"T", SOLO:"S" };
+
+  function exportFreeShow() {
+    const data = songToFreeShow(song, semitones);
+    setFreeshowJson(JSON.stringify(data, null, 2));
+    setShowFSJson(true);
+  }
+  function downloadFreeShow() {
+    const blob = new Blob([freeshowJson], {type:"application/json"});
+    const a = document.createElement("a"); a.href = URL.createObjectURL(blob);
+    a.download = `${song.titulo.replace(/\s/g,"_")}.json`; a.click();
+  }
+  function saveNotas() {
+    onUpdate({ ...song, notas });
+    setNotasSaved(true);
+  }
+
+  // ── Panel de configuración (tipo imagen 2) ────────────────────────────────
+  const ConfigPanel = () => (
+    <div style={{ position:"fixed", inset:0, zIndex:300, display:"flex", flexDirection:"column", background:T.bg }}>
+      {/* Header */}
+      <div style={{ display:"flex", alignItems:"center", gap:"12px", padding:"16px 16px 12px", borderBottom:`1px solid ${T.border}` }}>
+        <button style={{ background:"none", border:"none", cursor:"pointer", color:T.text, padding:4 }} onClick={()=>setShowConfig(false)}>
+          <Icon name="close" size={22}/>
+        </button>
+        <span style={{ fontWeight:800, fontSize:"18px", color:T.text }}>Preferencias</span>
+      </div>
+
+      <div style={{ flex:1, overflowY:"auto", padding:"16px" }}>
+        {/* Editar canción */}
+        <div style={{ background:T.surface, borderRadius:"12px", marginBottom:"16px", border:`1px solid ${T.border}` }}>
+          <button style={{ width:"100%", display:"flex", alignItems:"center", gap:"12px", padding:"14px 16px", background:"none", border:"none", cursor:"pointer", color:T.accent }}
+            onClick={()=>{ setShowConfig(false); onEdit(); }}>
+            <Icon name="edit" size={18}/>
+            <span style={{ flex:1, fontWeight:600, fontSize:"15px", textAlign:"left" }}>Editar canción</span>
+            <Icon name="back" size={16}/>
+          </button>
+        </div>
+
+        {/* Tempo + Tamaño fuente */}
+        <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:"10px", marginBottom:"16px" }}>
+          <div>
+            <label style={{ ...Ts.label, marginBottom:"6px" }}>Tempo</label>
+            <div style={{ background:T.surface, borderRadius:"10px", padding:"12px 14px", border:`1px solid ${T.border}`, fontSize:"15px", color:T.textSub }}>
+              ♩= {song.tempo} bpm
+            </div>
+          </div>
+          <div>
+            <label style={{ ...Ts.label, marginBottom:"6px" }}>Tamaño de letra</label>
+            <div style={{ background:T.surface, borderRadius:"10px", border:`1px solid ${T.border}`, display:"flex", alignItems:"center" }}>
+              <button style={{ flex:1, padding:"12px", background:"none", border:"none", cursor:"pointer", color:T.textSub, fontSize:"16px" }}
+                onClick={()=>setFontSize(f=>Math.max(12,f-1))}>A−</button>
+              <span style={{ color:T.text, fontWeight:700, fontSize:"15px" }}>{fontSize}px</span>
+              <button style={{ flex:1, padding:"12px", background:"none", border:"none", cursor:"pointer", color:T.textSub, fontSize:"16px" }}
+                onClick={()=>setFontSize(f=>Math.min(28,f+1))}>A+</button>
+            </div>
+          </div>
+        </div>
+
+        {/* Vista de canción */}
+        <label style={{ ...Ts.label, marginBottom:"8px" }}>Vista de canción</label>
+        <div style={{ display:"flex", background:T.surface, borderRadius:"10px", border:`1px solid ${T.border}`, overflow:"hidden", marginBottom:"16px" }}>
+          {[["acordes","Acordes"],["letra","Solo letra"]].map(([k,l])=>(
+            <button key={k} style={{ flex:1, padding:"12px", border:"none", cursor:"pointer", fontWeight:600, fontSize:"14px", transition:"all 0.15s",
+              background:viewMode===k?T.accent:"transparent", color:viewMode===k?"#fff":T.textMid }}
+              onClick={()=>setViewMode(k)}>{l}</button>
+          ))}
+        </div>
+
+        {/* Transportar */}
+        <label style={{ ...Ts.label, marginBottom:"8px" }}>Transportar — Tono actual: <strong style={{color:T.accent}}>{currentTono}</strong></label>
+        <div style={{ display:"flex", alignItems:"center", gap:"8px", background:T.surface, borderRadius:"10px", padding:"10px 14px", border:`1px solid ${T.border}`, marginBottom:"16px" }}>
+          <button style={{ background:T.inputBg, border:`1px solid ${T.border2}`, color:T.text, borderRadius:"8px", padding:"8px 16px", cursor:"pointer", fontSize:"18px", fontWeight:700 }}
+            onClick={()=>setSemitones(s=>s-1)}>−</button>
+          <span style={{ flex:1, textAlign:"center", fontWeight:800, fontSize:"20px", color:semitones===0?T.textSub:T.accent }}>{semDisplay}</span>
+          <button style={{ background:T.inputBg, border:`1px solid ${T.border2}`, color:T.text, borderRadius:"8px", padding:"8px 16px", cursor:"pointer", fontSize:"18px", fontWeight:700 }}
+            onClick={()=>setSemitones(s=>s+1)}>+</button>
+          {semitones!==0 && (
+            <button style={{ background:T.accent+"22", color:T.accent, border:`1px solid ${T.accent}44`, borderRadius:"8px", padding:"8px 12px", cursor:"pointer", fontSize:"13px", fontWeight:700 }}
+              onClick={()=>setSemitones(0)}>Reset</button>
+          )}
+        </div>
+
+        {/* Sección: Herramientas */}
+        <label style={{ ...Ts.label, marginBottom:"8px" }}>Herramientas</label>
+        <div style={{ background:T.surface, borderRadius:"12px", border:`1px solid ${T.border}`, overflow:"hidden", marginBottom:"16px" }}>
+          {[
+            ["ensayo",    "🎙",  "Pistas de ensayo",      "Mezclas aumentada/disminuida por instrumento"],
+            ["diagramas", "🎸",  "Diagramas de acordes",  "Guitarra y piano"],
+            ["notas",     "📝",  "Notas del canto",       song.notas ? "Con notas guardadas" : "Sin notas aún"],
+            ["freeshow",  "📺",  "Exportar a FreeShow",   "Genera JSON para presentación"],
+          ].map(([key, icon, title, sub], i, arr)=>(
+            <button key={key}
+              style={{ width:"100%", display:"flex", alignItems:"center", gap:"12px", padding:"14px 16px", background:"none", border:"none", borderBottom:i<arr.length-1?`1px solid ${T.border}`:"none", cursor:"pointer", textAlign:"left" }}
+              onClick={()=>{ setActiveTab(key); setShowConfig(false); }}>
+              <span style={{ fontSize:"20px", width:"28px", textAlign:"center" }}>{icon}</span>
+              <div style={{flex:1}}>
+                <div style={{ fontWeight:600, color:T.text, fontSize:"14px" }}>{title}</div>
+                <div style={{ fontSize:"12px", color:T.textSub, marginTop:"1px" }}>{sub}</div>
+              </div>
+              <Icon name="back" size={14}/>
+            </button>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+
 // ─── SONG EDITOR ──────────────────────────────────────────────────────────────
 function SongEditor({ song, onSave, onCancel }) {
   const [data, setData] = useState(song || {
