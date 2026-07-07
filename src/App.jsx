@@ -2210,8 +2210,8 @@ function HomePanel({ songs, setlists, onGoSongs, onGoSetlists, onGoCalendar, onS
 // ─── SUPABASE CONFIG ──────────────────────────────────────────────────────────
 // ⚠️  Reemplaza estos valores con los de tu proyecto Supabase
 // Supabase → Settings → API → Project URL y anon public key
-const SUPABASE_URL  = "https://TU-PROYECTO.supabase.co";
-const SUPABASE_KEY  = "tu-anon-key-aqui";
+const SUPABASE_URL  = "https://dbdphthfpywvsmuzkqga.supabase.co";
+const SUPABASE_KEY  = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRiZHBodGhmcHl3dnNtdXprcWdhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI0NDgyNzcsImV4cCI6MjA5ODAyNDI3N30.zTfDmopZKqU9ToFh6nELWH0zoEbeEdDfBaY1vQ8qXnQ";
 
 // Cliente Supabase mínimo sin dependencia npm (fetch directo)
 // Para producción instala @supabase/supabase-js y usa el cliente oficial
